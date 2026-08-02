@@ -5,8 +5,11 @@
 .DS_Store
 Thumbs.db
 
-#Skip IDE and editor files
+# Skip IDE and editor files
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
+
+# .git dir
+.git/
