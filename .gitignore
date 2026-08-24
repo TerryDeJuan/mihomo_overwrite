@@ -16,3 +16,7 @@ Thumbs.db
 
 # Skip personal rules
 personal/
+
+# Skip sftp files
+sftp-config.json
+.sftp-test.txt
