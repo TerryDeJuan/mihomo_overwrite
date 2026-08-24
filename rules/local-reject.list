@@ -1,0 +1,2 @@
+# Local deny-list; one classical Mihomo rule per line.
+# Keep machine-specific entries out of version control.

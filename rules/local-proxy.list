@@ -1,0 +1,2 @@
+# Local proxy-list; one classical Mihomo rule per line.
+# Example: DOMAIN-SUFFIX,example.invalid

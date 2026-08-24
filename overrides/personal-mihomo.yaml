@@ -1,0 +1,25 @@
+# Personal Mihomo rule-layer override.
+# Apply after a subscription has been converted to Mihomo YAML.
+# No credentials or subscription URLs belong in this file.
+
+rules:
+  - RULE-SET,local_reject,REJECT-DROP
+  - RULE-SET,local_proxy,默认代理
+  - RULE-SET,local_direct,DIRECT
+
+rule-providers:
+  local_reject:
+    type: file
+    behavior: classical
+    format: text
+    path: ./rules/local-reject.list
+  local_proxy:
+    type: file
+    behavior: classical
+    format: text
+    path: ./rules/local-proxy.list
+  local_direct:
+    type: file
+    behavior: classical
+    format: text
+    path: ./rules/local-direct.list

@@ -1,0 +1,9 @@
+[submodule "baselines/sub-store"]
+	path = baselines/sub-store
+	url = https://github.com/sub-store-org/Sub-Store.git
+[submodule "baselines/myclash"]
+	path = baselines/myclash
+	url = https://github.com/AIsouler/MyClash.git
+[submodule "baselines/override-hub"]
+	path = baselines/override-hub
+	url = https://github.com/mihomo-party-org/override-hub.git
