@@ -15,9 +15,10 @@ Thumbs.db
 .git/
 
 # Skip personal rules
+personal/*
 !personal/README.md
 !personal/example_rules.list
-personal/*
+
 
 # Skip sftp files
 sftp-config.json

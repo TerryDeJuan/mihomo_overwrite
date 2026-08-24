@@ -1,0 +1,6 @@
+# Example Mihomo classical rules.
+# Copy this file to a new local file under personal/ and edit it.
+# Do not modify this public example with private domains.
+
+# DOMAIN-SUFFIX,example.com
+# DOMAIN-SUFFIX,example.net
