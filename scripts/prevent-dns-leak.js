@@ -1,5 +1,5 @@
 function main(config) {
-  // 填充rule-provider
+  // English comment
   if (!config['rule-providers']) {
     config['rule-providers'] = {};
   }
@@ -12,7 +12,7 @@ function main(config) {
   };
   config['rule-providers']['prevent_dns_leak'] = newProvider;
 
-  // 填充规则
+  // English comment
   const matchRule = config.rules.find(rule => rule.startsWith("MATCH"));
   const name = matchRule ? matchRule.split(",").pop() : null;
   const newRule = `RULE-SET,prevent_dns_leak,${name}`;
@@ -20,7 +20,7 @@ function main(config) {
     config.rules.unshift(newRule);
   }
 
-  // 修改dns为fakeip
+  // English comment
   if (!config.dns) {
     config.dns = {};
   }

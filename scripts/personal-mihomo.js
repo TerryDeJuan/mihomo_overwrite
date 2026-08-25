@@ -1,67 +1,67 @@
 /**
- * mihomo配置覆写脚本（全量版）
- * 作者：AIsouler
- * 源仓库：https://github.com/AIsouler/MyClash
- * 脚本链接：https://raw.githubusercontent.com/AIsouler/MyClash/main/Script/mihomoScript.js
- * 友情推荐，非常好用、省电且内存占用低的代理软件：https://github.com/appshubcc/Bettbox
+ * English comment
+ * English comment
+ * English comment
+ * English comment
+ * English comment
  */
 
-// --- 静态配置区域 ---
+// English comment
 
-// 适配 Bettbox 自定义配置参数
+// English comment
 const Compatible_With_Bettbox = { ruleOptionsEnable: true };
 
 /**
- * 自定义配置选项
- * true = 启用
- * false = 禁用
+ * English comment
+ * English comment
+ * English comment
  */
 const ruleOptionsEnable = {
-  // 基础策略组
-  手动选择: true, // 是否启用手动选择策略组
-  自动选择: true, // 是否启用自动选择策略组
-  负载均衡: true, // 是否启用负载均衡策略组
+  // English comment
+  手动选择: true, // English comment
+  自动选择: true, // English comment
+  负载均衡: true, // English comment
 
-  // 以下为分流策略配置
-  FCM: true, // GoogleFCM服务
-  YouTube: true, // YouTube视频平台
-  Google: true, // Google服务
-  AI: true, // 国外AI服务
-  Microsoft: true, // Microsoft服务
-  Apple: true, // Apple服务
-  Telegram: true, // Telegram通讯软件
-  Steam: true, // Steam游戏平台
-  TikTok: true, // TikTok视频平台
-  Twitter: true, // Twitter社交平台
-  Instagram: true, // Instagram社交平台
-  Netflix: true, // Netflix视频平台
-  Emby: true, // Emby媒体服务
-  PikPak: true, // PikPak网盘服务
-  Spotify: true, // Spotify音乐服务
-  Crypto: true, // 加密货币相关服务
-  EHentai: true, // E-Hentai网站
-  AdBlock: true, // 广告拦截
+  // English comment
+  FCM: true, // English comment
+  YouTube: true, // English comment
+  Google: true, // English comment
+  AI: true, // English comment
+  Microsoft: true, // English comment
+  Apple: true, // English comment
+  Telegram: true, // English comment
+  Steam: true, // English comment
+  TikTok: true, // English comment
+  Twitter: true, // English comment
+  Instagram: true, // English comment
+  Netflix: true, // English comment
+  Emby: true, // English comment
+  PikPak: true, // English comment
+  Spotify: true, // English comment
+  Crypto: true, // English comment
+  EHentai: true, // English comment
+  AdBlock: true, // English comment
 
-  // 以下为非分流策略配置
-  生成地区自动选择组: true, // 是否生成地区自动选择策略组
-  隐藏地区手动选择组: false, // 是否隐藏地区手动选择策略组
-  生成倍率组: true, // 是否生成低倍率/高倍率策略组
-  分流组添加所有节点: false, // 是否为分流策略组添加所有节点
-  过滤高倍率节点: false, // 是否过滤高倍率节点
-  过滤非地区节点: true, // 是否过滤非地区节点
-  屏蔽国外QUIC: true, // 是否屏蔽国外QUIC流量
-  代理IPV4优先: false, // 是否将订阅节点统一为 IPv4 优先（与“代理IPV6优先”同时开启时不生效）
-  代理IPV6优先: false, // 是否将订阅节点统一为 IPv6 优先（与“代理IPV4优先”同时开启时不生效）
-  链式代理: false, // 是否启用链式代理（自定义节点作为落地节点，经“链式中转”策略组中转）
+  // English comment
+  生成地区自动选择组: true, // English comment
+  隐藏地区手动选择组: false, // English comment
+  生成倍率组: true, // English comment
+  分流组添加所有节点: false, // English comment
+  过滤高倍率节点: false, // English comment
+  过滤非地区节点: true, // English comment
+  屏蔽国外QUIC: true, // English comment
+  代理IPV4优先: false, // English comment
+  代理IPV6优先: false, // English comment
+  链式代理: false, // English comment
 };
 
-// 定义前置规则
+// English comment
 const prefixRules = [
-  // 私有网络直连
+  // English comment
   'RULE-SET,private,直连',
 
-  // 国内直连
-  'RULE-SET,games_cn,直连', // 已包含 steam 下载域名
+  // English comment
+  'RULE-SET,games_cn,直连', // English comment
   'RULE-SET,epicgames,直连',
   'RULE-SET,nvidia_cn,直连',
   'RULE-SET,apple_cn,直连',
@@ -71,12 +71,12 @@ const prefixRules = [
   'DOMAIN-SUFFIX,hdslb.com,直连',
 ];
 
-// 此处添加自定义节点，填入下方[]内（可选，留空则不生成“自建节点”策略组）
-// 自定义节点不参与节点过滤与 hosts 改写；与订阅节点（标准化后）重名时自动添加“自建-”前缀
-// 示例：
+// English comment
+// English comment
+// English comment
 // const customizeProxies = [
 //   {
-//     name: '自建-日本-01',
+// English comment
 //     type: 'vmess',
 //     server: '5.6.7.8',
 //     port: 443,
@@ -94,19 +94,19 @@ const prefixRules = [
 // ];
 const customizeProxies = [];
 
-// 链式代理启用时，自定义节点的 dialer-proxy 引用目标
+// English comment
 const dialerProxyName = '链式中转';
 
-// 定义全局排除节点的正则表达式，用于排除非地区节点
+// English comment
 const excludeFilter =
   /群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|电报|无法|说明|使用|提示|访问|支持|教程|关注|更新|作者|加入|超时|收藏|优惠|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|重置|以下|⚠️|@|t\.me\/\+|\bexpire\b|\bhttps?:\/\/|\.com|\btraffic\b/iu;
 
-// 屏蔽国外QUIC
+// English comment
 const blockForeignQuic = [
   'AND,((NETWORK,UDP),(DST-PORT,443),(NOT,((OR,((RULE-SET,cn_additional),(RULE-SET,cn_ip,no-resolve)))))),REJECT',
 ];
 
-// 直连节点
+// English comment
 const directProxies = [
   {
     name: '🇨🇳 直连 | 双栈',
@@ -134,7 +134,7 @@ const directProxies = [
   },
 ];
 
-// 定义地区策略组
+// English comment
 const regionDefinitions = [
   {
     name: '香港',
@@ -169,7 +169,7 @@ const regionDefinitions = [
   },
 ];
 
-// 定义倍率策略组
+// English comment
 const lowRateRegionName = '低倍率节点';
 const highRateRegionName = '高倍率节点';
 
@@ -187,10 +187,10 @@ const rateRegionDefinitions = [
   },
 ];
 
-// 全部策略组定义（地区 + 倍率），统一用于节点匹配与归类
+// English comment
 const allRegionDefinitions = [...regionDefinitions, ...rateRegionDefinitions];
 
-// Rule Providers 通用配置
+// English comment
 const ruleProviderCommonDomain = {
   type: 'http',
   format: 'mrs',
@@ -204,9 +204,9 @@ const ruleProviderCommonIpcidr = {
   behavior: 'ipcidr',
 };
 
-// 定义基础 Rule Providers
+// English comment
 const baseRuleProviders = {
-  // --- 直连规则集 ---
+  // English comment
 
   private: {
     ...ruleProviderCommonDomain,
@@ -263,7 +263,7 @@ const baseRuleProviders = {
     'path-in-bundle': 'geo/geoip/cn.mrs',
   },
 
-  // --- 代理规则集 ---
+  // English comment
 
   gfw: {
     ...ruleProviderCommonDomain,
@@ -272,7 +272,7 @@ const baseRuleProviders = {
     'path-in-bundle': 'geo/geosite/gfw.mrs',
   },
 
-  // --- 其他规则集 ---
+  // English comment
 
   fakeip_filter: {
     ...ruleProviderCommonDomain,
@@ -294,7 +294,7 @@ const baseRuleProviders = {
   },
 };
 
-// 策略组公共配置
+// English comment
 const groupBaseOption = {
   interval: 600,
   timeout: 3000,
@@ -304,13 +304,13 @@ const groupBaseOption = {
   'empty-fallback': 'REJECT',
 };
 
-// select策略组通用配置
+// English comment
 const selectBaseOption = {
   ...groupBaseOption,
   type: 'select',
 };
 
-// url-test策略组通用配置
+// English comment
 const urlTestBaseOption = {
   ...groupBaseOption,
   type: 'url-test',
@@ -320,7 +320,7 @@ const urlTestBaseOption = {
   hidden: true,
 };
 
-// load-balance策略组通用配置
+// English comment
 const loadBalanceBaseOption = {
   ...groupBaseOption,
   type: 'load-balance',
@@ -330,7 +330,7 @@ const loadBalanceBaseOption = {
   hidden: true,
 };
 
-// 定义基础策略组
+// English comment
 const baseGroups = [
   {
     name: '手动选择',
@@ -352,7 +352,7 @@ const baseGroups = [
   },
 ];
 
-// 定义分流策略组配置
+// English comment
 const serviceConfigs = [
   ...baseGroups,
   {
@@ -671,10 +671,10 @@ const serviceConfigs = [
   },
 ];
 
-// ---节点过滤、重命名及验证---
+// English comment
 
 /**
- * 节点匹配缓存，避免重复执行正则
+ * English comment
  */
 const regionMatchCache = new Map();
 function getMatchedRegions(proxyName) {
@@ -689,26 +689,26 @@ function getMatchedRegions(proxyName) {
 }
 
 /**
- * 标准化节点名称：补全地区国旗、折叠多余空格，并预缓存匹配结果
+ * English comment
  */
 const flagRegex = /[\u{1F1E6}-\u{1F1FF}]{2}/u;
 function normalizeProxyName(proxy) {
   const originalName = proxy.name;
 
-  // 提取节点原有国旗
+  // English comment
   const flag = originalName.match(flagRegex)?.[0];
 
-  // 有国旗时移除国旗，再移除多余空格
+  // English comment
   const nameWithoutFlag = (flag ? originalName.replace(flag, '') : originalName).replace(/\s+/g, ' ').trim();
 
   const matchedRegions = getMatchedRegions(originalName);
 
-  // 如果已有国旗则直接使用原国旗
-  // 如果没有国旗，则从地区匹配结果中取地区国旗
+  // English comment
+  // English comment
   const regionFlag = flag || matchedRegions.find((region) => region.flag)?.flag;
   const normalizedName = regionFlag ? `${regionFlag} ${nameWithoutFlag}` : nameWithoutFlag;
 
-  // 预缓存标准化后的节点名称，供后续构建策略组复用
+  // English comment
   if (normalizedName !== originalName) {
     regionMatchCache.set(normalizedName, matchedRegions);
   }
@@ -717,31 +717,31 @@ function normalizeProxyName(proxy) {
 }
 
 /**
- * 修复 dialer-proxy 引用：目标被重命名则更新，被移除或不存在则删除引用
+ * English comment
  */
 function fixDialerProxy(proxy, renameMap, normalizedProxyNames) {
   const target = proxy['dialer-proxy'];
   if (!target) return proxy;
 
-  // 目标节点被重命名 → 更新引用为标准化后的名称
+  // English comment
   if (renameMap.has(target)) {
     return { ...proxy, 'dialer-proxy': renameMap.get(target) };
   }
 
-  // 目标节点被保留且未重命名 → 引用依然有效
+  // English comment
   if (normalizedProxyNames.has(target)) {
     return proxy;
   }
 
-  // 目标节点被过滤移除（或引用目标本就不存在）→ 删除引用，避免引用不存在的节点
+  // English comment
   const copy = { ...proxy };
   delete copy['dialer-proxy'];
   return copy;
 }
 
 /**
- * 读取代理 IP 版本偏好：仅其中一个开关开启时返回对应偏好，
- * 同时开启或同时关闭时返回 null（不应用任何偏好，节点保持原样）
+ * English comment
+ * English comment
  */
 function getIpVersionPreference() {
   const ipv4PreferEnabled = ruleOptionsEnable.代理IPV4优先;
@@ -753,10 +753,10 @@ function getIpVersionPreference() {
 }
 
 /**
- * 过滤并标准化节点：剔除内置/信息节点、按配置过滤、去重、修复 dialer-proxy 引用，空列表时抛错
+ * English comment
  */
 function filterAndNormalizeProxies(config) {
-  // 清空缓存，避免上次运行残留的旧名称
+  // English comment
   regionMatchCache.clear();
 
   const filterHighRateProxiesEnabled = ruleOptionsEnable.过滤高倍率节点;
@@ -768,7 +768,7 @@ function filterAndNormalizeProxies(config) {
 
   const originalProxies = config.proxies || [];
 
-  // 过滤节点列表（尚未重命名）
+  // English comment
   const filteredRawProxies = originalProxies.filter((proxy) => {
     const type = String(proxy.type ?? '').toLowerCase();
     if (type === 'direct' || type === 'reject' || type === 'rematch') return false;
@@ -782,10 +782,10 @@ function filterAndNormalizeProxies(config) {
     return isRegionProxy || !excludeFilter.test(proxy.name);
   });
 
-  // 重命名映射：原名称 -> 标准化后的名称
+  // English comment
   const renameMap = new Map();
 
-  // 标准化节点名称并去重（保留首个同名节点）
+  // English comment
   const normalizedProxies = [];
   const uniqueNames = new Set();
 
@@ -800,18 +800,18 @@ function filterAndNormalizeProxies(config) {
     }
   }
 
-  // 标准化后的节点名称集合（用于判断 dialer-proxy 引用目标是否仍有效）
+  // English comment
   const normalizedProxyNames = new Set(normalizedProxies.map((p) => p.name));
 
-  // 修复 dialer-proxy 引用
+  // English comment
   const filteredProxies = normalizedProxies.map((proxy) => fixDialerProxy(proxy, renameMap, normalizedProxyNames));
 
-  // 验证节点列表是否存在代理节点
+  // English comment
   if (!filteredProxies.length) {
     throw new Error('配置文件中未找到任何代理节点，请使用机场提供的配置文件进行覆写');
   }
 
-  // 应用代理 IP 版本偏好（仅订阅节点；自定义节点与直连节点不参与）
+  // English comment
   const ipVersionPreference = getIpVersionPreference();
   if (ipVersionPreference) {
     return filteredProxies.map((proxy) =>
@@ -822,10 +822,10 @@ function filterAndNormalizeProxies(config) {
   return filteredProxies;
 }
 
-// ---构建地区组和倍率组---
+// English comment
 
 /**
- * 构建地区策略组，可附带自动选择组
+ * English comment
  */
 function createRegionGroup(name, icon, proxies) {
   const generateRegionAutoSelectEnabled = ruleOptionsEnable.生成地区自动选择组;
@@ -860,12 +860,12 @@ function createRegionGroup(name, icon, proxies) {
 }
 
 /**
- * 将节点按地区/倍率归类，构建地区策略组、倍率策略组与“其他节点”组
+ * English comment
  */
 function buildRegionGroups(filteredProxies, customProxies) {
   const generateRateGroupEnabled = ruleOptionsEnable.生成倍率组;
 
-  // 节点分类
+  // English comment
   const regionGroups = Object.fromEntries(allRegionDefinitions.map(({ name }) => [name, []]));
   const otherProxies = [];
 
@@ -882,7 +882,7 @@ function buildRegionGroups(filteredProxies, customProxies) {
     }
   }
 
-  // 构建 地区/倍率 策略组
+  // English comment
   const generatedRegionGroups = allRegionDefinitions
     .filter((r) => regionGroups[r.name].length > 0 && (generateRateGroupEnabled || !rateRegionDefinitions.includes(r)))
     .flatMap((r) => createRegionGroup(r.name, r.icon, regionGroups[r.name]));
@@ -900,17 +900,17 @@ function buildRegionGroups(filteredProxies, customProxies) {
   return generatedRegionGroups;
 }
 
-// ---构建自定义节点组---
+// English comment
 
 /**
- * 处理自定义节点：标准化名称、与订阅节点重名时添加“自建-”前缀、内部去重，
- * 并构建“自建节点”策略组。
- * 自定义节点不参与订阅节点过滤，也不参与 hosts 改写及 DNS 域名处理。
+ * English comment
+ * English comment
+ * English comment
  */
 function buildCustomizeGroups(filteredProxies, customizeList = customizeProxies) {
   const chainEnabled = ruleOptionsEnable.链式代理;
 
-  // 未配置自定义节点时直接返回空结果
+  // English comment
   if (!customizeList.length) {
     if (chainEnabled) {
       throw new Error('启用失败，请在脚本中添加自定义节点后尝试');
@@ -918,28 +918,28 @@ function buildCustomizeGroups(filteredProxies, customizeList = customizeProxies)
     return { customProxies: [], customProxyNames: [], customGroup: null };
   }
 
-  // 订阅节点标准化后的名称集合，用于重名判断
+  // English comment
   const usedNames = new Set(filteredProxies.map((p) => p.name));
 
-  // 重名时使用的前缀
+  // English comment
   const customPrefix = '自建-';
 
-  // 标准化自定义节点并解决重名冲突（与订阅节点重名或自定义节点间重名）
+  // English comment
   const customProxies = [];
   for (const proxy of customizeList) {
     const normalized = normalizeProxyName(proxy);
 
     let name = normalized.name;
 
-    // 重名时添加前缀并重新标准化（国旗自动回到最前），直至名称唯一；
-    // 标准化会重建“国旗 + 空格 + 名称”格式，这里去掉前缀后多余的空格
+    // English comment
+    // English comment
     while (usedNames.has(name)) {
       name = normalizeProxyName({ name: `${customPrefix}${name}` }).name.replace(`${customPrefix} `, customPrefix);
     }
     usedNames.add(name);
 
     let customProxy = name === normalized.name ? normalized : { ...normalized, name };
-    // 链式代理启用时强制添加/覆盖 dialer-proxy，使自定义节点经“链式中转”策略组中转
+    // English comment
     if (chainEnabled && customProxy['dialer-proxy'] !== dialerProxyName) {
       customProxy = { ...customProxy, 'dialer-proxy': dialerProxyName };
     }
@@ -948,7 +948,7 @@ function buildCustomizeGroups(filteredProxies, customizeList = customizeProxies)
 
   const customProxyNames = customProxies.map((p) => p.name);
 
-  // 自建节点/链式落地 策略组
+  // English comment
   const customGroup = {
     ...selectBaseOption,
     name: chainEnabled ? '链式落地' : '自建节点',
@@ -963,10 +963,10 @@ function buildCustomizeGroups(filteredProxies, customizeList = customizeProxies)
   };
 }
 
-// ---构建基础策略组和分流策略组---
+// English comment
 
 /**
- * 构建基础/分流策略组/部分节点组、GLOBAL 组与规则集，并汇总分流规则
+ * English comment
  */
 function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customizeInfo) {
   const blockForeignQuicEnabled = ruleOptionsEnable.屏蔽国外QUIC;
@@ -978,27 +978,27 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
   const functionalRules = [];
   const finalRuleProviders = { ...baseRuleProviders };
 
-  // cn_additional 规则集仅服务于 “屏蔽国外QUIC” 规则，关闭该选项时无需生成
+  // English comment
   if (!blockForeignQuicEnabled) {
     delete finalRuleProviders.cn_additional;
   }
 
-  // 自定义节点信息（未配置自定义节点时为空）
+  // English comment
   const { customProxyNames = [], customGroup = null } = customizeInfo || {};
 
-  // 筛选后的节点名称列表（不含自定义节点）
+  // English comment
   const filteredProxyNames = filteredProxies.map((p) => p.name);
 
-  // 获取所有节点名称（自定义节点优先，便于在基础策略组中查看）
+  // English comment
   const allProxiesNames = [...customProxyNames, ...filteredProxyNames];
 
-  // 筛选类型为 select 的地区策略组
+  // English comment
   const groupNamesOfSelect = generatedRegionGroups.filter((g) => g.type === 'select').map((g) => g.name);
 
-  // 获取基础策略组名称
+  // English comment
   const baseGroupNames = baseGroups.filter((g) => ruleOptionsEnable[g.name]).map((g) => g.name);
 
-  // 自建节点策略组名称（未配置自定义节点时为空数组）
+  // English comment
   const customGroupNames = customGroup ? [customGroup.name] : [];
 
   functionalGroups.push({
@@ -1008,7 +1008,7 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png',
   });
 
-  // 分流规则与规则集收集（AdBlock 规则优先，避免广告域名被其他分流规则抢先匹配）
+  // English comment
   const orderedServiceConfigs = [
     ...serviceConfigs.filter((svc) => svc.name === 'AdBlock'),
     ...serviceConfigs.filter((svc) => svc.name !== 'AdBlock'),
@@ -1020,11 +1020,11 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
     Object.assign(finalRuleProviders, svc.providers || {});
   }
 
-  // 构建分流策略组（保持 serviceConfigs 原有顺序）
+  // English comment
   for (const svc of serviceConfigs) {
     if (!ruleOptionsEnable[svc.name]) continue;
 
-    // 添加分流策略组对应的节点列表
+    // English comment
     let groupProxies = [];
     if (svc.includeAll) {
       groupProxies = [...allProxiesNames];
@@ -1054,7 +1054,7 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
     });
   }
 
-  // 添加其他策略组
+  // English comment
   functionalGroups.push({
     ...selectBaseOption,
     name: '漏网之鱼',
@@ -1062,13 +1062,13 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Stack.png',
   });
 
-  // 添加自建节点策略组（未配置自定义节点时跳过）
+  // English comment
   if (customGroup) {
     functionalGroups.push(customGroup);
   }
 
-  // 链式代理：构建“链式中转”策略组（自定义节点作为落地节点时的中转选择）
-  // 直接放入所有订阅节点（不含自定义节点），不放入策略组，避免与落地节点的 dialer-proxy 形成回环
+  // English comment
+  // English comment
   const chainGroup =
     chainEnabled && customGroup
       ? {
@@ -1088,7 +1088,7 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
     hidden: hideManualSelectGroupEnabled,
   };
 
-  // 构建 GLOBAL 全局策略组
+  // English comment
   const globalGroup = {
     ...selectBaseOption,
     name: 'GLOBAL',
@@ -1104,11 +1104,11 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
   return { globalGroup, functionalGroups, functionalRules, finalRuleProviders, chainGroup, directProxiesGroup };
 }
 
-// ---dns和hosts相关处理---
+// English comment
 
-// 常见的公共 DNS，用于过滤订阅中的公共 DNS
+// English comment
 const commonDnsList = [
-  // IP（国内）
+  // English comment
   '223.5.5.5',
   '223.6.6.6',
   '119.29.29.29',
@@ -1123,7 +1123,7 @@ const commonDnsList = [
   '180.184.1.1',
   '180.184.2.2',
 
-  // IP（国外）
+  // English comment
   '1.1.1.1',
   '1.0.0.1',
   '8.8.8.8',
@@ -1143,7 +1143,7 @@ const commonDnsList = [
   '156.154.70.1',
   '156.154.71.1',
 
-  // 关键词（国内）
+  // English comment
   'alidns',
   'doh.pub',
   'dot.pub',
@@ -1151,7 +1151,7 @@ const commonDnsList = [
   'dnspod',
   'dns.baidu',
 
-  // 关键词（国外）
+  // English comment
   'dns.google',
   'cloudflare',
   'quad9',
@@ -1159,23 +1159,23 @@ const commonDnsList = [
   'nextdns',
   'adguard',
 
-  // 系统
+  // English comment
   'system',
 ];
 
-// 预编译公共 DNS 正则
+// English comment
 const commonDnsRegex = new RegExp(
   commonDnsList.map((dns) => dns.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'),
   'i',
 );
 
-// 国内外 DNS 定义
+// English comment
 const chinaDNS = ['223.5.5.5', '119.29.29.29'];
 const chinaDohDNS = ['https://223.5.5.5/dns-query#DIRECT', 'https://1.12.12.12/dns-query#DIRECT'];
 const foreignDNS = ['https://cloudflare-dns.com/dns-query#默认代理', 'https://dns.google/dns-query#默认代理'];
 
 /**
- * hosts 匹配优先级：精确 > +. > . > *（同级按出现顺序）
+ * English comment
  */
 function hostSpecificity(pattern) {
   if (pattern.startsWith('+.')) return 2;
@@ -1185,19 +1185,19 @@ function hostSpecificity(pattern) {
 }
 
 /**
- * 判断域名规则（精确/通配）是否匹配节点域名集合，忽略大小写
+ * English comment
  */
 function matchDomainPattern(pattern, domains) {
   pattern = pattern.toLowerCase();
 
-  // 精确匹配
+  // English comment
   if (!pattern.includes('*') && !pattern.startsWith('+.') && !pattern.startsWith('.')) {
     return typeof domains === 'string'
       ? domains.toLowerCase() === pattern
       : [...domains].some((d) => d.toLowerCase() === pattern);
   }
 
-  // 通配匹配：统一转为数组遍历（字符串时直接构建单元素数组，避免 Set 中转）
+  // English comment
   const domainList = typeof domains === 'string' ? [domains.toLowerCase()] : [...domains].map((d) => d.toLowerCase());
 
   // +.example.com
@@ -1212,7 +1212,7 @@ function matchDomainPattern(pattern, domains) {
     return domainList.some((domain) => domain !== suffix && domain.endsWith(`.${suffix}`));
   }
 
-  // *.example.com、example.*.com 等
+  // English comment
   const patternParts = pattern.split('.');
   return domainList.some((domain) => {
     const domainParts = domain.split('.');
@@ -1224,33 +1224,33 @@ function matchDomainPattern(pattern, domains) {
 }
 
 /**
- * 根据订阅 hosts 映射改写节点 server，改写后无需再复制 hosts 进新配置。
- * 支持链式映射（如 a: b、b: c 时节点 a 改写为 c）；
- * 回环映射（a: b、b: a）由内核校验拒绝，此处仅以已访问集合防御性终止
+ * English comment
+ * English comment
+ * English comment
  */
 function applyHostsToProxies(proxies, hosts) {
   if (!hosts || typeof hosts !== 'object') return proxies;
 
-  // 全部有效条目按匹配优先级排序（链式解析需保留中继条目，故不按节点域名预过滤）
+  // English comment
   const hostEntries = Object.entries(hosts)
     .filter(
       ([, value]) => (typeof value === 'string' && value.length > 0) || (Array.isArray(value) && value.length > 0),
     )
     .sort((a, b) => hostSpecificity(b[0]) - hostSpecificity(a[0]));
 
-  // 无任何有效条目时直接返回，避免不必要的遍历
+  // English comment
   if (hostEntries.length === 0) return proxies;
 
-  // 取映射目标（数组取首个非空字符串），无有效目标时返回 null
+  // English comment
   const targetOf = (value) => {
     if (Array.isArray(value)) value = value.find((v) => typeof v === 'string' && v.length > 0);
     return typeof value === 'string' && value.length > 0 ? value : null;
   };
 
-  // 解析结果缓存：相同节点域名只解析一次，后续直接复用
+  // English comment
   const resolveCache = new Map();
 
-  // 解析单个节点域名：沿链式映射逐级改写至最终目标，无匹配时原样返回
+  // English comment
   const resolve = (server) => {
     const cached = resolveCache.get(server);
     if (cached !== undefined) return cached;
@@ -1278,8 +1278,8 @@ function applyHostsToProxies(proxies, hosts) {
 }
 
 /**
- * 剥离 DNS 地址的 # 策略组后缀；# 后为 direct（忽略大小写与首尾空白，可带 & 参数）时整条保留，
- * 避免误保留 directxxx 等策略组名引用
+ * English comment
+ * English comment
  */
 function stripDnsSuffix(dns) {
   const str = String(dns);
@@ -1296,21 +1296,21 @@ function stripDnsSuffix(dns) {
 }
 
 /**
- * 判断节点 server 是否为 IP 地址（IPv4 / IPv6），用于从节点域名集合中排除 IP 类型的 server
+ * English comment
  */
 function isIpAddress(server) {
   return /^\d{1,3}(\.\d{1,3}){3}$/.test(server) || server.includes(':');
 }
 
 /**
- * 构建 DNS 与 hosts：保留私有 DNS、节点域名 policy/fake-ip-filter，并按 hosts 改写节点 server
+ * English comment
  */
 function buildDnsAndHostsConfig(config, filteredProxies) {
   const originalDnsConfig = config.dns || {};
 
-  // hosts改写条件：
-  // 1. 仅当原配置 proxy-server-nameserver 有且仅有一个 DNS，且该 DNS 包含非空的 listen 时
-  // 2. proxy-server-nameserver 有且仅有一个 DNS 并且包含 127.0.0.1 并且 listen 包含 0.0.0.0
+  // English comment
+  // English comment
+  // English comment
   const proxyServerNameservers = originalDnsConfig['proxy-server-nameserver'] || [];
   const listenValue = originalDnsConfig['listen'];
 
@@ -1327,10 +1327,10 @@ function buildDnsAndHostsConfig(config, filteredProxies) {
     (proxyServerNameservers.some((dns) => String(dns).toLowerCase().includes(listenValue.toLowerCase())) ||
       matchesLocalDnsListener);
 
-  // 根据订阅 hosts 改写节点 server 为映射后的地址（域名或 IP）
+  // English comment
   const mappedProxies = shouldRewriteByHosts ? applyHostsToProxies(filteredProxies, config.hosts) : filteredProxies;
 
-  // 节点域名集合
+  // English comment
   const proxyDomains = new Set(
     mappedProxies
       .filter((proxy) => typeof proxy.server === 'string')
@@ -1338,12 +1338,12 @@ function buildDnsAndHostsConfig(config, filteredProxies) {
       .filter((server) => !isIpAddress(server)),
   );
 
-  // 命中触发条件时，私有 DNS 提取时直接置空，避免本地监听 DNS 被误留为私有 DNS
+  // English comment
   const privateProxyServerNameservers = shouldRewriteByHosts ? [] : proxyServerNameservers;
 
   const isCommonDns = (dns) => commonDnsRegex.test(String(dns));
 
-  // 提取私有 DNS（先剥离 # 策略组后缀，再判断是否为公共 DNS）
+  // English comment
   const privateDNS = [
     ...new Set(
       [...(originalDnsConfig['nameserver'] || []), ...privateProxyServerNameservers]
@@ -1352,7 +1352,7 @@ function buildDnsAndHostsConfig(config, filteredProxies) {
     ),
   ];
 
-  // 提取节点域名对应的 DNS 配置（剥离 # 策略组后缀）
+  // English comment
   const proxyServerPolicy = {};
   for (const [domain, dns] of Object.entries({
     ...originalDnsConfig['nameserver-policy'],
@@ -1360,22 +1360,22 @@ function buildDnsAndHostsConfig(config, filteredProxies) {
   })) {
     if (!matchDomainPattern(domain, proxyDomains)) continue;
 
-    // 剥离 # 策略组后缀；数组过滤空字符串，空数组视为无效条目
+    // English comment
     const value = Array.isArray(dns) ? dns.map(stripDnsSuffix).filter((d) => d.length > 0) : stripDnsSuffix(dns);
     if (Array.isArray(value) && value.length === 0) continue;
 
     proxyServerPolicy[domain] = value;
   }
 
-  // 无节点专属 DNS 策略且存在私有 DNS 时，将节点域名统一映射到私有 DNS
+  // English comment
   if (privateDNS.length > 0 && Object.keys(proxyServerPolicy).length === 0) {
     for (const domain of proxyDomains) {
       proxyServerPolicy[domain] = privateDNS;
     }
   }
 
-  // 遍历原配置中的 fake-ip-filter，保留与节点域名匹配的条目
-  // 部分机场的节点域名需走真实 IP 解析，避免 fake-ip 导致节点无法连接
+  // English comment
+  // English comment
   const originalFakeIpFilter = originalDnsConfig['fake-ip-filter'] || [];
   const proxyFakeIpFilter = originalFakeIpFilter.filter((pattern) => {
     const p = String(pattern);
@@ -1408,10 +1408,10 @@ function buildDnsAndHostsConfig(config, filteredProxies) {
     'cloudflare-dns.com': ['1.1.1.1', '1.0.0.1'],
     'dns.google': ['8.8.8.8', '8.8.4.4'],
 
-    // 解决谷歌商店无法下载的问题
+    // English comment
     'services.googleapis.cn': ['services.googleapis.com'],
 
-    // 屏蔽哔哩哔哩PCDN，解决访问视频/直播卡顿问题
+    // English comment
     '+.mcdn.bilivideo.com': ['0.0.0.0'],
     '+.mcdn.bilivideo.cn': ['0.0.0.0'],
     '+.edge.mountaintoys.cn': ['0.0.0.0'],
@@ -1421,28 +1421,28 @@ function buildDnsAndHostsConfig(config, filteredProxies) {
   return { dns, hosts, proxies: mappedProxies };
 }
 
-// --- 主入口 ---
+// English comment
 
 /**
- * 主入口：覆写机场订阅配置，生成完整 mihomo 配置
+ * English comment
  */
 function main(config) {
   const newConfig = {};
 
-  // 节点过滤、重命名及验证（仅订阅节点）
+  // English comment
   const filteredProxies = filterAndNormalizeProxies(config);
 
-  // 处理自定义节点（标准化、解决重名、构建“自建节点”策略组）
+  // English comment
   const { customProxies, customProxyNames, customGroup } = buildCustomizeGroups(filteredProxies);
 
-  // 构建地区组和倍率组
+  // English comment
   const generatedRegionGroups = buildRegionGroups(filteredProxies, customProxies);
 
-  // 构建基础策略组和分流策略组和部分节点组（含“自建节点”、“链式中转”和“直连”策略组）
+  // English comment
   const { globalGroup, functionalGroups, functionalRules, finalRuleProviders, chainGroup, directProxiesGroup } =
     buildFunctionalGroups(filteredProxies, generatedRegionGroups, { customProxyNames, customGroup });
 
-  // dns和hosts相关处理（仅订阅节点参与 hosts 改写，返回已应用 hosts 映射的节点列表）
+  // English comment
   const { dns, hosts, proxies: mappedProxies } = buildDnsAndHostsConfig(config, filteredProxies);
 
   newConfig['dns'] = dns;
@@ -1500,7 +1500,7 @@ function main(config) {
     ...(ruleOptionsEnable.屏蔽国外QUIC ? blockForeignQuic : []),
     ...functionalRules,
 
-    // 兜底规则
+    // English comment
     'RULE-SET,gfw,默认代理',
     'RULE-SET,geolocation-cn,直连',
     'RULE-SET,cn_ip,直连',

@@ -7,23 +7,23 @@ proxy_providers_common:
     health-check: { enable: true, url: 'https://g.cn/generate_204', interval: 600, lazy: true },
   }
 
-# 全局过滤节点
+# Global node exclusion filter
 global_exclude_filter:
   &global_exclude_filter {
     exclude-filter: '(?i)(群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|提示|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|通路|登录|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|重置)',
   }
 
-# 订阅提供者，如果你想要添加多个订阅提供者，可以复制 provider1 的配置块，并修改 url 、 path 和 additional-prefix 字段。
+# Subscription providers. Copy provider1 to add another provider, then change its URL, path, and additional-prefix.
 proxy-providers:
   provider1:
     <<: [*proxy_providers_common, *global_exclude_filter]
-    url: '' # 此处单引号中间填入机场订阅链接
-    age-secret-key: '' # 此处填入机场订阅链接解密私钥，如果机场订阅链接需要解密才能使用，请将解密私钥填入单引号中间，否则不要改动此项
+    url: '' # Put the subscription URL between the single quotes.
+    age-secret-key: '' # If decryption is required, put the key between the single quotes; otherwise leave this field empty.
     path: ./proxy_provider/provider1.yaml
     override:
-      additional-prefix: 'p1 | ' # 给节点名称添加前缀，防止不同订阅的节点重名导致出现问题
+      additional-prefix: 'p1 | ' # Prefix node names to prevent collisions between subscriptions.
 
-# 以下是一个示例，各行缩进必须严格对齐provider1
+# Example provider block; keep indentation aligned with provider1.
 # provider2:
 #   <<: [*proxy_providers_common, *global_exclude_filter]
 #   url: ''
@@ -32,13 +32,13 @@ proxy-providers:
 #   override:
 #     additional-prefix: 'p2 | '
 
-# 节点配置，可添加自定义节点
+# Node definitions; custom nodes may be added here.
 proxies:
   - { name: '🇨🇳 直连 | IPv4优先', type: direct, ip-version: ipv4-prefer }
   - { name: '🇨🇳 直连 | IPv6优先', type: direct, ip-version: ipv6-prefer }
   - { name: '🇨🇳 直连 | 双栈', type: direct }
 
-# --- 基础全局配置 ---
+# --- Basic global configuration ---
 
 mixed-port: 7890
 allow-lan: true
@@ -59,7 +59,7 @@ profile:
   store-selected: true
   store-fake-ip: true
 
-# 国内外 DNS 定义
+# Domestic and foreign DNS definitions
 chinaDNS: &chinaDNS ['https://dns.alidns.com/dns-query#DIRECT', 'https://doh.pub/dns-query#DIRECT']
 foreignDNS: &foreignDNS ['https://dns.cloudflare.com/dns-query#默认代理', 'https://dns.google/dns-query#默认代理']
 
@@ -85,10 +85,10 @@ hosts:
   'dns.cloudflare.com': ['1.1.1.1', '1.0.0.1']
   'dns.google': ['8.8.8.8', '8.8.4.4']
 
-  # 解决谷歌商店无法下载的问题
+  # Fix Google Play Store download failures.
   'services.googleapis.cn': ['services.googleapis.com']
 
-  # 屏蔽哔哩哔哩PCDN，解决访问视频卡顿/直播问题
+  # Block Bilibili PCDN to fix video and livestream stuttering.
   '+.mcdn.bilivideo.com': ['0.0.0.0']
   '+.mcdn.bilivideo.cn': ['0.0.0.0']
   '+.edge.mountaintoys.cn': ['0.0.0.0']
@@ -110,7 +110,7 @@ tun:
   auto-detect-interface: true
   dns-hijack: ['any:53', 'tcp://any:53']
 
-# --- 规则集 ---
+# --- Rule sets ---
 
 # --- Unified rule providers ---
 rule-providers:

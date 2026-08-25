@@ -1,4 +1,4 @@
-# 游戏模式（⚠️所用节点需开启 UDP 转发支持）
+# English comment
 
 PROTOCOL,UDP
 # Gaming_List
@@ -51,7 +51,7 @@ DOMAIN,bnetproduct-a.akamaihd.net
 # > Nintendo
 DOMAIN-SUFFIX,nintendo.com
 DOMAIN-SUFFIX,nintendo.net
-# 相比代理，更建议先尝试使用 hosts：https://www.dogfight360.com/blog/475/
+# English comment
 DOMAIN-SUFFIX,origin.com
 DOMAIN,cloudsync-prod.s3.amazonaws.com
 DOMAIN,origin-a.akamaihd.net // Akamai

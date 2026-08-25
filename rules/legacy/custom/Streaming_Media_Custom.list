@@ -1,4 +1,4 @@
-# ⚠️ 注意，需要放置在 YouTube.list 之前，且不适用于 Quantumult X 及浏览器环境
+# English comment
 DOMAIN,music.youtube.com
 
 # > YouTube Google
@@ -1149,7 +1149,7 @@ DOMAIN,hbounify-prod.evergent.com
 DOMAIN,players.brightcove.net
 DOMAIN,s3-ap-southeast-1.amazonaws.com
 
-# > 华文电视
+# English comment
 USER-AGENT,HWTVMobile*
 DOMAIN-SUFFIX,5itv.tv
 DOMAIN-SUFFIX,ocnttv.com
@@ -1221,7 +1221,7 @@ DOMAIN,cbsplaylistserver.aws.syncbak.com
 DOMAIN,cbsservice.aws.syncbak.com
 DOMAIN,link.theplatform.com
 
-# > 台湾好
+# English comment
 USER-AGENT,TaiwanGood*
 DOMAIN-SUFFIX,skyking.com.tw
 DOMAIN,hamifans.emome.net

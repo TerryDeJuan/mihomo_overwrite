@@ -2,11 +2,12 @@
 """Dependency-free checks for the repository's publishable configuration."""
 import re
 from pathlib import Path
+from typing import Tuple
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def validate_primary_config(path: Path) -> tuple[int, int, int]:
+def validate_primary_config(path: Path) -> Tuple[int, int, int]:
     """Check the primary Mihomo YAML relationships without third-party modules."""
     text = path.read_text(encoding="utf-8-sig")
     assert not re.search(r"(?m)^\s+url:\s+https?://", text), "quote all HTTP URLs"
