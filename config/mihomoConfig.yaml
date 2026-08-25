@@ -8,10 +8,10 @@ proxy_providers_common:
   }
 
 # Global node exclusion filter
-global_exclude_filter:
-  &global_exclude_filter {
-    exclude-filter: '(?i)(群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|提示|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|通路|登录|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|重置)',
-  }
+# global_exclude_filter:
+#   &global_exclude_filter {
+#     exclude-filter: '(?i)(群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|提示|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|通路|登录|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|重置)',
+#   }
 
 # Subscription providers. Copy provider1 to add another provider, then change its URL, path, and additional-prefix.
 proxy-providers:
@@ -33,82 +33,82 @@ proxy-providers:
 #     additional-prefix: 'p2 | '
 
 # Node definitions; custom nodes may be added here.
-proxies:
-  - { name: '🇨🇳 直连 | IPv4优先', type: direct, ip-version: ipv4-prefer }
-  - { name: '🇨🇳 直连 | IPv6优先', type: direct, ip-version: ipv6-prefer }
-  - { name: '🇨🇳 直连 | 双栈', type: direct }
+# proxies:
+#   - { name: '🇨🇳 直连 | IPv4优先', type: direct, ip-version: ipv4-prefer }
+#   - { name: '🇨🇳 直连 | IPv6优先', type: direct, ip-version: ipv6-prefer }
+#   - { name: '🇨🇳 直连 | 双栈', type: direct }
 
 # --- Basic global configuration ---
 
-mixed-port: 7890
-allow-lan: true
-ipv6: true
-mode: rule
-log-level: info
-bind-address: '*'
-unified-delay: true
-tcp-concurrent: true
-keep-alive-idle: 600
-keep-alive-interval: 60
-find-process-mode: strict
-external-controller: '127.0.0.1:9090'
-external-ui: ui
-external-ui-url: 'https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip'
+# mixed-port: 7890
+# allow-lan: true
+# ipv6: true
+# mode: rule
+# log-level: info
+# bind-address: '*'
+# unified-delay: true
+# tcp-concurrent: true
+# keep-alive-idle: 600
+# keep-alive-interval: 60
+# find-process-mode: strict
+# external-controller: '127.0.0.1:9090'
+# external-ui: ui
+# external-ui-url: 'https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip'
 
-profile:
-  store-selected: true
-  store-fake-ip: true
+# profile:
+#   store-selected: true
+#   store-fake-ip: true
 
 # Domestic and foreign DNS definitions
-chinaDNS: &chinaDNS ['https://dns.alidns.com/dns-query#DIRECT', 'https://doh.pub/dns-query#DIRECT']
-foreignDNS: &foreignDNS ['https://dns.cloudflare.com/dns-query#默认代理', 'https://dns.google/dns-query#默认代理']
+# chinaDNS: &chinaDNS ['https://dns.alidns.com/dns-query#DIRECT', 'https://doh.pub/dns-query#DIRECT']
+# foreignDNS: &foreignDNS ['https://dns.cloudflare.com/dns-query#默认代理', 'https://dns.google/dns-query#默认代理']
 
-dns:
-  enable: true
-  ipv6: true
-  use-hosts: true
-  cache-algorithm: arc
-  use-system-hosts: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter: ['rule-set:private', 'rule-set:fakeip_filter']
-  proxy-server-nameserver: *chinaDNS
-  default-nameserver: ['223.5.5.5', '119.29.29.29']
-  nameserver: *foreignDNS
-  nameserver-policy:
-    'rule-set:cn': *chinaDNS
-  direct-nameserver: ['system', '223.5.5.5', '119.29.29.29']
+# dns:
+#   enable: true
+#   ipv6: true
+#   use-hosts: true
+#   cache-algorithm: arc
+#   use-system-hosts: true
+#   enhanced-mode: fake-ip
+#   fake-ip-range: 198.18.0.1/16
+#   fake-ip-filter: ['rule-set:private', 'rule-set:fakeip_filter']
+#   proxy-server-nameserver: *chinaDNS
+#   default-nameserver: ['223.5.5.5', '119.29.29.29']
+#   nameserver: *foreignDNS
+#   nameserver-policy:
+#     'rule-set:cn': *chinaDNS
+#   direct-nameserver: ['system', '223.5.5.5', '119.29.29.29']
 
-hosts:
-  'dns.alidns.com': ['223.5.5.5', '223.6.6.6']
-  'doh.pub': ['1.12.12.12', '120.53.53.53']
-  'dns.cloudflare.com': ['1.1.1.1', '1.0.0.1']
-  'dns.google': ['8.8.8.8', '8.8.4.4']
+# hosts:
+#   'dns.alidns.com': ['223.5.5.5', '223.6.6.6']
+#   'doh.pub': ['1.12.12.12', '120.53.53.53']
+#   'dns.cloudflare.com': ['1.1.1.1', '1.0.0.1']
+#   'dns.google': ['8.8.8.8', '8.8.4.4']
 
-  # Fix Google Play Store download failures.
-  'services.googleapis.cn': ['services.googleapis.com']
+#   # Fix Google Play Store download failures.
+#   'services.googleapis.cn': ['services.googleapis.com']
 
-  # Block Bilibili PCDN to fix video and livestream stuttering.
-  '+.mcdn.bilivideo.com': ['0.0.0.0']
-  '+.mcdn.bilivideo.cn': ['0.0.0.0']
-  '+.edge.mountaintoys.cn': ['0.0.0.0']
-  '+.h2.smtcdns.net': ['0.0.0.0']
+#   # Block Bilibili PCDN to fix video and livestream stuttering.
+#   '+.mcdn.bilivideo.com': ['0.0.0.0']
+#   '+.mcdn.bilivideo.cn': ['0.0.0.0']
+#   '+.edge.mountaintoys.cn': ['0.0.0.0']
+#   '+.h2.smtcdns.net': ['0.0.0.0']
 
-ntp:
-  enable: true
-  write-to-system: false
-  server: 'ntp.aliyun.com'
-  port: 123
-  interval: 60
+# ntp:
+#   enable: true
+#   write-to-system: false
+#   server: 'ntp.aliyun.com'
+#   port: 123
+#   interval: 60
 
-tun:
-  enable: true
-  stack: system
-  auto-route: true
-  strict-route: true
-  auto-redirect: true
-  auto-detect-interface: true
-  dns-hijack: ['any:53', 'tcp://any:53']
+# tun:
+#   enable: true
+#   stack: system
+#   auto-route: true
+#   strict-route: true
+#   auto-redirect: true
+#   auto-detect-interface: true
+#   dns-hijack: ['any:53', 'tcp://any:53']
 
 # --- Rule sets ---
 
