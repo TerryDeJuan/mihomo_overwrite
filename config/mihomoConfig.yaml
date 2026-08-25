@@ -14,14 +14,14 @@ proxy_providers_common:
 #   }
 
 # Subscription providers. Copy provider1 to add another provider, then change its URL, path, and additional-prefix.
-proxy-providers:
-  provider1:
-    <<: [*proxy_providers_common, *global_exclude_filter]
-    url: '' # Put the subscription URL between the single quotes.
-    age-secret-key: '' # If decryption is required, put the key between the single quotes; otherwise leave this field empty.
-    path: ./proxy_provider/provider1.yaml
-    override:
-      additional-prefix: 'p1 | ' # Prefix node names to prevent collisions between subscriptions.
+# proxy-providers:
+#   provider1:
+#     <<: [*proxy_providers_common, *global_exclude_filter]
+#     url: '' # Put the subscription URL between the single quotes.
+#     age-secret-key: '' # If decryption is required, put the key between the single quotes; otherwise leave this field empty.
+#     path: ./proxy_provider/provider1.yaml
+#     override:
+#       additional-prefix: 'p1 | ' # Prefix node names to prevent collisions between subscriptions.
 
 # Example provider block; keep indentation aligned with provider1.
 # provider2:
