@@ -112,577 +112,394 @@ tun:
 
 # --- 规则集 ---
 
-# Rule Provider 通用配置
-rule_providers_common:
-  rule_providers_domain: &rule_providers_domain { type: http, format: mrs, interval: 86400, behavior: domain }
-  rule_providers_ip: &rule_providers_ip { type: http, format: mrs, interval: 86400, behavior: ipcidr }
-
-# 定义 Rule Providers
+# --- Unified rule providers ---
 rule-providers:
-  # --- 直连规则集 ---
-
   private:
-    <<: *rule_providers_domain
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs'
-    path: './ruleset/private.mrs'
-    path-in-bundle: 'geo/geosite/private.mrs'
-  private_ip:
-    <<: *rule_providers_ip
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs'
-    path: './ruleset/private_ip.mrs'
-    path-in-bundle: 'geo/geoip/private.mrs'
-  games_cn:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs'
-    path: './ruleset/category-games@cn.mrs'
-    path-in-bundle: 'geo/geosite/category-games@cn.mrs'
-  epicgames:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/epicgames.mrs'
-    path: './ruleset/epicgames.mrs'
-    path-in-bundle: 'geo/geosite/epicgames.mrs'
-  nvidia_cn:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nvidia@cn.mrs'
-    path: './ruleset/nvidia@cn.mrs'
-    path-in-bundle: 'geo/geosite/nvidia@cn.mrs'
-  apple_cn:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple@cn.mrs'
-    path: './ruleset/apple@cn.mrs'
-    path-in-bundle: 'geo/geosite/apple@cn.mrs'
-  microsoft_cn:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs'
-    path: './ruleset/microsoft@cn.mrs'
-    path-in-bundle: 'geo/geosite/microsoft@cn.mrs'
-  geolocation-cn:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-cn.mrs'
-    path: './ruleset/geolocation-cn.mrs'
-    path-in-bundle: 'geo/geosite/geolocation-cn.mrs'
-  cn_ip:
-    <<: *rule_providers_ip
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs'
-    path: './ruleset/cn_ip.mrs'
-    path-in-bundle: 'geo/geoip/cn.mrs'
-
-  # --- 代理规则集 ---
-
-  ai:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs'
-    path: './ruleset/ai.mrs'
-    path-in-bundle: 'geo/geosite/category-ai-!cn.mrs'
-  youtube:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs'
-    path: './ruleset/youtube.mrs'
-    path-in-bundle: 'geo/geosite/youtube.mrs'
-  instagram:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/instagram.mrs'
-    path: './ruleset/instagram.mrs'
-    path-in-bundle: 'geo/geosite/instagram.mrs'
-  netflix:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs'
-    path: './ruleset/netflix.mrs'
-    path-in-bundle: 'geo/geosite/netflix.mrs'
-  netflix_ip:
-    <<: *rule_providers_ip
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs'
-    path: './ruleset/netflix_ip.mrs'
-    path-in-bundle: 'geo/geoip/netflix.mrs'
-  hbo:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/hbo.mrs'
-    path: './ruleset/hbo.mrs'
-    path-in-bundle: 'geo/geosite/hbo.mrs'
-  twitch:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitch.mrs'
-    path: './ruleset/twitch.mrs'
-    path-in-bundle: 'geo/geosite/twitch.mrs'
-  disney:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.mrs'
-    path: './ruleset/disney.mrs'
-    path-in-bundle: 'geo/geosite/disney.mrs'
-  niconico:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/niconico.mrs'
-    path: './ruleset/niconico.mrs'
-    path-in-bundle: 'geo/geosite/niconico.mrs'
-  bbc:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bbc.mrs'
-    path: './ruleset/bbc.mrs'
-    path-in-bundle: 'geo/geosite/bbc.mrs'
-  pornhub:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/pornhub.mrs'
-    path: './ruleset/pornhub.mrs'
-    path-in-bundle: 'geo/geosite/pornhub.mrs'
-  googlefcm:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/googlefcm.mrs'
-    path: './ruleset/googlefcm.mrs'
-    path-in-bundle: 'geo/geosite/googlefcm.mrs'
-  google:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs'
-    path: './ruleset/google.mrs'
-    path-in-bundle: 'geo/geosite/google.mrs'
-  google_ip:
-    <<: *rule_providers_ip
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs'
-    path: './ruleset/google_ip.mrs'
-    path-in-bundle: 'geo/geoip/google.mrs'
-  github:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs'
-    path: './ruleset/github.mrs'
-    path-in-bundle: 'geo/geosite/github.mrs'
-  microsoft:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs'
-    path: './ruleset/microsoft.mrs'
-    path-in-bundle: 'geo/geosite/microsoft.mrs'
-  apple:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs'
-    path: './ruleset/apple.mrs'
-    path-in-bundle: 'geo/geosite/apple.mrs'
-  telegram:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs'
-    path: './ruleset/telegram.mrs'
-    path-in-bundle: 'geo/geosite/telegram.mrs'
-  telegram_ip:
-    <<: *rule_providers_ip
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs'
-    path: './ruleset/telegram_ip.mrs'
-    path-in-bundle: 'geo/geoip/telegram.mrs'
-  steam:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs'
-    path: './ruleset/steam.mrs'
-    path-in-bundle: 'geo/geosite/steam.mrs'
-  tiktok:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs'
-    path: './ruleset/tiktok.mrs'
-    path-in-bundle: 'geo/geosite/tiktok.mrs'
-  twitter:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitter.mrs'
-    path: './ruleset/twitter.mrs'
-    path-in-bundle: 'geo/geosite/twitter.mrs'
-  twitter_ip:
-    <<: *rule_providers_ip
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/twitter.mrs'
-    path: './ruleset/twitter_ip.mrs'
-    path-in-bundle: 'geo/geoip/twitter.mrs'
-  emby:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Emby.mrs'
-    path: './ruleset/emby.mrs'
-    path-in-bundle: 'geo/geosite/category-emby.mrs'
-  pikpak:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/pikpak.mrs'
-    path: './ruleset/pikpak.mrs'
-    'path-in-bundle': 'geo/geosite/pikpak.mrs'
-  spotify:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs'
-    path: './ruleset/spotify.mrs'
-    path-in-bundle: 'geo/geosite/spotify.mrs'
-  cryptocurrency:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-cryptocurrency.mrs'
-    path: './ruleset/cryptocurrency.mrs'
-    path-in-bundle: 'geo/geosite/category-cryptocurrency.mrs'
-  ehentai:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/ehentai.mrs'
-    path: './ruleset/ehentai.mrs'
-    path-in-bundle: 'geo/geosite/ehentai.mrs'
-  gfw:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/gfw.mrs'
-    path: './ruleset/gfw.mrs'
-    path-in-bundle: 'geo/geosite/gfw.mrs'
-
-  # --- 其他规则集 ---
-
-  adblockmihomolite:
-    <<: *rule_providers_domain
-    url: 'https://fastly.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomolite.mrs'
-    path: './ruleset/adblockmihomolite.mrs'
-    path-in-bundle: 'geo/geosite/category-ads-all.mrs'
+    path: './ruleset/private.list'
   fakeip_filter:
-    <<: *rule_providers_domain
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/fakeip-filter.mrs'
-    path: './ruleset/fakeip-filter.mrs'
-    path-in-bundle: 'geo/geosite/private.mrs'
-  cn_additional:
-    <<: *rule_providers_domain
-    url: 'https://static-file-global.353355.xyz/rules/cn-additional-list.mrs'
-    path: './ruleset/cn-additional-list.mrs'
-    path-in-bundle: 'geo/geosite/cn.mrs'
+    path: './ruleset/fakeip_filter.list'
   cn:
-    <<: *rule_providers_domain
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/direct.mrs'
-    path: './ruleset/cn.mrs'
-    path-in-bundle: 'geo/geosite/cn.mrs'
-
-# --- Personal and migrated text providers ---
-  personal_personal_local_domains:
+    path: './ruleset/cn.list'
+  cn_games:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs'
+    path: './ruleset/cn_games.mrs'
+  cn_epicgames:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/epicgames.mrs'
+    path: './ruleset/cn_epicgames.mrs'
+  cn_nvidia:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nvidia@cn.mrs'
+    path: './ruleset/cn_nvidia.mrs'
+  cn_apple:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple@cn.mrs'
+    path: './ruleset/cn_apple.mrs'
+  cn_microsoft:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs'
+    path: './ruleset/cn_microsoft.mrs'
+  sensitive_personal_local_domains:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/personal_local_domains.list'
-    path: './ruleset/personal_personal_local_domains.list'
-  personal_localareanetwork:
+    url: 'https://rules.example.net/personal/custom/sensitive/personal_local_domains.list'
+    path: './ruleset/sensitive_personal_local_domains.list'
+  rule_localareanetwork:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/LocalAreaNetwork.list'
-    path: './ruleset/personal_localareanetwork.list'
-  personal_msservices:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/LocalAreaNetwork.list'
+    path: './ruleset/rule_localareanetwork.list'
+  rule_msservices:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/MSServices.list'
-    path: './ruleset/personal_msservices.list'
-  personal_unbreak:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/MSServices.list'
+    path: './ruleset/rule_msservices.list'
+  rule_unbreak:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/DivineEngine/Surge/Ruleset/Unbreak.list'
-    path: './ruleset/personal_unbreak.list'
-  personal_advertisinglite:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/DivineEngine/Surge/Ruleset/Unbreak.list'
+    path: './ruleset/rule_unbreak.list'
+  bm_advertisinglite:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.list'
-    path: './ruleset/personal_advertisinglite.list'
-  personal_netflix:
+    path: './ruleset/bm_advertisinglite.list'
+  rule_netflix:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list'
-    path: './ruleset/personal_netflix.list'
-  personal_streaming_media_custom:
+    path: './ruleset/rule_netflix.list'
+  rule_streaming_media_custom:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/Streaming_Media_Custom.list'
-    path: './ruleset/personal_streaming_media_custom.list'
-  personal_deezer:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Streaming_Media_Custom.list'
+    path: './ruleset/rule_streaming_media_custom.list'
+  bm_deezer:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Deezer/Deezer.list'
-    path: './ruleset/personal_deezer.list'
-  personal_netflix_2:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list'
-    path: './ruleset/personal_netflix_2.list'
-  personal_disney:
+    path: './ruleset/bm_deezer.list'
+  bm_disney:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.list'
-    path: './ruleset/personal_disney.list'
-  personal_hbo:
+    path: './ruleset/bm_disney.list'
+  bm_hbo:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBO/HBO.list'
-    path: './ruleset/personal_hbo.list'
-  personal_youtube:
+    path: './ruleset/bm_hbo.list'
+  bm_youtube:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list'
-    path: './ruleset/personal_youtube.list'
-  personal_ai:
+    path: './ruleset/bm_youtube.list'
+  rule_ai:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/AI.list'
-    path: './ruleset/personal_ai.list'
-  personal_openai:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/AI.list'
+    path: './ruleset/rule_ai.list'
+  bm_openai:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list'
-    path: './ruleset/personal_openai.list'
-  personal_claude:
+    path: './ruleset/bm_openai.list'
+  bm_claude:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list'
-    path: './ruleset/personal_claude.list'
-  personal_gemini:
+    path: './ruleset/bm_claude.list'
+  bm_gemini:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list'
-    path: './ruleset/personal_gemini.list'
-  personal_social_media:
+    path: './ruleset/bm_gemini.list'
+  rule_social_media:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/Social_Media.list'
-    path: './ruleset/personal_social_media.list'
-  personal_tiktok:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Social_Media.list'
+    path: './ruleset/rule_social_media.list'
+  bm_tiktok:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list'
-    path: './ruleset/personal_tiktok.list'
-  personal_bilibili:
+    path: './ruleset/bm_tiktok.list'
+  rule_bilibili:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.list'
-    path: './ruleset/personal_bilibili.list'
-  personal_iqiyi:
+    path: './ruleset/rule_bilibili.list'
+  rule_iqiyi:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/iQIYI/iQIYI.list'
-    path: './ruleset/personal_iqiyi.list'
-  personal_letv:
+    path: './ruleset/rule_iqiyi.list'
+  rule_letv:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/LeTV/LeTV.list'
-    path: './ruleset/personal_letv.list'
-  personal_moo:
+    path: './ruleset/rule_letv.list'
+  rule_moo:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/lhie1/Surge/Surge%203/Provider/Media/MOO.list'
-    path: './ruleset/personal_moo.list'
-  personal_tencent_video:
+    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MOO.list'
+    path: './ruleset/rule_moo.list'
+  rule_tencent_video:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TencentVideo/TencentVideo.list'
-    path: './ruleset/personal_tencent_video.list'
-  personal_youku:
+    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TencentVideo.list'
+    path: './ruleset/rule_tencent_video.list'
+  rule_youku:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Youku/Youku.list'
-    path: './ruleset/personal_youku.list'
-  personal_cn_media_custom:
+    path: './ruleset/rule_youku.list'
+  rule_cn_media_custom:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/CN_Media_Custom.list'
-    path: './ruleset/personal_cn_media_custom.list'
-  personal_telegram:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list'
-    path: './ruleset/personal_telegram.list'
-  personal_telegram_2:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/CN_Media_Custom.list'
+    path: './ruleset/rule_cn_media_custom.list'
+  rule_telegram:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list'
-    path: './ruleset/personal_telegram_2.list'
-  personal_telegram_3:
+    path: './ruleset/rule_telegram.list'
+  rule_telegram_2:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list'
-    path: './ruleset/personal_telegram_3.list'
-  personal_singapore:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Telegram.list'
+    path: './ruleset/rule_telegram_2.list'
+  rule_singapore:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/Singapore.list'
-    path: './ruleset/personal_singapore.list'
-  personal_jp_kr:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Singapore.list'
+    path: './ruleset/rule_singapore.list'
+  rule_jp_kr:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/JP_KR.list'
-    path: './ruleset/personal_jp_kr.list'
-  personal_im_services:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/JP_KR.list'
+    path: './ruleset/rule_jp_kr.list'
+  rule_im_services:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/IM_Services.list'
-    path: './ruleset/personal_im_services.list'
-  personal_vps_play_ground:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/IM_Services.list'
+    path: './ruleset/rule_im_services.list'
+  sensitive_vps_play_ground:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/VPS_Play_Ground.list'
-    path: './ruleset/personal_vps_play_ground.list'
-  personal_gaming:
+    url: 'https://rules.example.net/personal/custom/sensitive/VPS_Play_Ground.list'
+    path: './ruleset/sensitive_vps_play_ground.list'
+  rule_gaming:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/Gaming.list'
-    path: './ruleset/personal_gaming.list'
-  personal_work_sus:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Gaming.list'
+    path: './ruleset/rule_gaming.list'
+  sensitive_work_sus:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/Work_sus.list'
-    path: './ruleset/personal_work_sus.list'
-  personal_work:
+    url: 'https://rules.example.net/personal/custom/sensitive/Work_sus.list'
+    path: './ruleset/sensitive_work_sus.list'
+  sensitive_work:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/Work.list'
-    path: './ruleset/personal_work.list'
-  personal_apple:
+    url: 'https://rules.example.net/personal/custom/sensitive/Work.list'
+    path: './ruleset/sensitive_work.list'
+  rule_apple:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list'
-    path: './ruleset/personal_apple.list'
-  personal_download:
+    path: './ruleset/rule_apple.list'
+  rule_download:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/Download.list'
-    path: './ruleset/personal_download.list'
-  personal_china:
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Download.list'
+    path: './ruleset/rule_download.list'
+  rule_china:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list'
-    path: './ruleset/personal_china.list'
-  personal_chinacompanyip:
+    path: './ruleset/rule_china.list'
+  rule_chinacompanyip:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/ACL4SSR/Clash/ChinaCompanyIp.list'
-    path: './ruleset/personal_chinacompanyip.list'
-  personal_chinadomain:
+    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list'
+    path: './ruleset/rule_chinacompanyip.list'
+  rule_chinadomain:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/ACL4SSR/Clash/ChinaDomain.list'
-    path: './ruleset/personal_chinadomain.list'
-  personal_chinaip_custom:
+    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list'
+    path: './ruleset/rule_chinadomain.list'
+  sensitive_chinaip_custom:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/ChinaIP_Custom.list'
-    path: './ruleset/personal_chinaip_custom.list'
-  personal_global:
+    url: 'https://rules.example.net/personal/custom/sensitive/ChinaIP_Custom.list'
+    path: './ruleset/sensitive_chinaip_custom.list'
+  rule_global:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/DivineEngine/Surge/Ruleset/Global.list'
-    path: './ruleset/personal_global.list'
-  personal_global_2:
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list'
+    path: './ruleset/rule_global.list'
+  rule_global_2:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/Global.list'
-    path: './ruleset/personal_global_2.list'
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Global.list'
+    path: './ruleset/rule_global_2.list'
 
-# --- Proxy groups migrated from groups.toml; emoji prefixes removed ---
+# --- Proxy groups from groups.toml; emoji prefixes removed; Global -> Proxy; CN_Media -> CN_Service ---
 proxy-groups:
-  - name: 'Global'
+  - name: 'Proxy'
     type: select
     proxies: ['US_Auto', 'US_Select', 'Auto_All', 'Media_Auto', 'Media_Select', 'Direct', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'DMCA_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'DMCA_Select', 'Block']
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png'
   - name: 'Streaming_Media'
     type: select
-    proxies: ['Media_Select', 'Media_Auto', 'Global', 'US_Auto', 'US_Select', 'JP_KR_Auto', 'JP_KR_Select', 'Auto_All', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Direct', 'Block']
+    proxies: ['Media_Select', 'Media_Auto', 'Proxy', 'US_Auto', 'US_Select', 'JP_KR_Auto', 'JP_KR_Select', 'Auto_All', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
   - name: 'AI'
     type: select
-    proxies: ['Media_Select', 'US_Select', 'Media_Auto', 'Global', 'US_Auto', 'Direct', 'Auto_All', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
+    proxies: ['Media_Select', 'US_Select', 'Media_Auto', 'Proxy', 'US_Auto', 'Direct', 'Auto_All', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png'
   - name: 'Microsoft'
     type: select
-    proxies: ['Global', 'US_Auto', 'Auto_All', 'US_Select', 'TW_SG_Auto', 'TW_SG_Select', 'Direct', 'Block']
+    proxies: ['Proxy', 'US_Auto', 'Auto_All', 'US_Select', 'TW_SG_Auto', 'TW_SG_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png'
   - name: 'Telegram'
     type: select
-    proxies: ['TW_SG_Select', 'TW_SG_Auto', 'US_Auto', 'Global', 'US_Select', 'JP_KR_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'EU_Select', 'HK_Select', 'Block']
+    proxies: ['TW_SG_Select', 'TW_SG_Auto', 'US_Auto', 'Proxy', 'US_Select', 'JP_KR_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'EU_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
   - name: 'Social_Media'
     type: select
-    proxies: ['TW_SG_Select', 'Global', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'EU_Select', 'HK_Select', 'Direct', 'Block']
+    proxies: ['TW_SG_Select', 'Proxy', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'EU_Select', 'HK_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Weibo.png'
   - name: 'IM_Service'
     type: select
-    proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Global', 'US_Auto', 'US_Select', 'TW_SG_Select', 'TW_SG_Auto', 'HK_Auto', 'HK_Select', 'Auto_All', 'EU_Auto', 'EU_Select', 'Direct', 'Block']
+    proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Proxy', 'US_Auto', 'US_Select', 'TW_SG_Select', 'TW_SG_Auto', 'HK_Auto', 'HK_Select', 'Auto_All', 'EU_Auto', 'EU_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
   - name: 'Gaming'
     type: select
-    proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Direct', 'US_Auto', 'US_Select', 'Global', 'Auto_All', 'TW_SG_Auto', 'HK_Auto', 'TW_SG_Select', 'HK_Select', 'Block']
+    proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Direct', 'US_Auto', 'US_Select', 'Proxy', 'Auto_All', 'TW_SG_Auto', 'HK_Auto', 'TW_SG_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png'
   - name: 'Remaining'
     type: select
-    proxies: ['Global', 'Media_Auto', 'Media_Select', 'Direct', 'Auto_All', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'DMCA_Auto', 'US_Select', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'DMCA_Select', 'Block']
+    proxies: ['Proxy', 'Media_Auto', 'Media_Select', 'Direct', 'Auto_All', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'DMCA_Auto', 'US_Select', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'DMCA_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Stack.png'
   - name: 'Play_Ground'
     type: select
-    proxies: ['Global', 'Direct', 'Block']
+    proxies: ['Proxy', 'Direct', 'Block']
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Static.png'
   - name: 'US_Select'
@@ -715,23 +532,23 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate.png'
   - name: 'Work'
     type: select
-    proxies: ['Telegram', 'Direct', 'Block', 'Global']
+    proxies: ['Telegram', 'Direct', 'Block', 'Proxy']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Work.png'
   - name: 'Work_Sus'
     type: select
-    proxies: ['Block', 'Direct', 'Global', 'Telegram']
+    proxies: ['Block', 'Direct', 'Proxy', 'Telegram']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Work.png'
-  - name: 'CN_Media'
+  - name: 'CN_Service'
     type: select
     proxies: ['Direct', 'Block', 'HK_Auto', 'HK_Select']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png'
   - name: 'Apple'
     type: select
-    proxies: ['Global', 'Direct', 'Auto_All', 'US_Auto', 'HK_Auto', 'US_Select', 'HK_Select']
+    proxies: ['Proxy', 'Direct', 'Auto_All', 'US_Auto', 'HK_Auto', 'US_Select', 'HK_Select']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png'
   - name: 'Ads'
     type: select
-    proxies: ['Block', 'Direct', 'Global']
+    proxies: ['Block', 'Direct', 'Proxy']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
   - name: 'Home'
     type: select
@@ -739,7 +556,7 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/House.png'
   - name: 'Torrent'
     type: select
-    proxies: ['DMCA_Select', 'DMCA_Auto', 'Global', 'Direct', 'Auto_All', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
+    proxies: ['DMCA_Select', 'DMCA_Auto', 'Proxy', 'Direct', 'Auto_All', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png'
   - name: 'Direct'
     type: select
@@ -806,50 +623,55 @@ proxy-groups:
     tolerance: 150
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate.png'
 
-# --- Rules: original rulesets.toml order; obsolete Home entry omitted ---
+# --- Ordered rules from rulesets.toml; obsolete Home omitted ---
 rules:
-  - RULE-SET,personal_personal_local_domains,Direct
-  - RULE-SET,personal_localareanetwork,Direct
-  - RULE-SET,personal_msservices,Microsoft
-  - RULE-SET,personal_unbreak,Direct
-  - RULE-SET,personal_advertisinglite,Ads
-  - RULE-SET,personal_netflix,Streaming_Media
-  - RULE-SET,personal_streaming_media_custom,Streaming_Media
-  - RULE-SET,personal_deezer,Streaming_Media
-  - RULE-SET,personal_netflix_2,Streaming_Media
-  - RULE-SET,personal_disney,Streaming_Media
-  - RULE-SET,personal_hbo,Streaming_Media
-  - RULE-SET,personal_youtube,Streaming_Media
-  - RULE-SET,personal_ai,AI
-  - RULE-SET,personal_openai,AI
-  - RULE-SET,personal_claude,AI
-  - RULE-SET,personal_gemini,AI
-  - RULE-SET,personal_social_media,Social_Media
-  - RULE-SET,personal_tiktok,Social_Media
-  - RULE-SET,personal_bilibili,CN_Media
-  - RULE-SET,personal_iqiyi,CN_Media
-  - RULE-SET,personal_letv,CN_Media
-  - RULE-SET,personal_moo,CN_Media
-  - RULE-SET,personal_tencent_video,CN_Media
-  - RULE-SET,personal_youku,CN_Media
-  - RULE-SET,personal_cn_media_custom,CN_Media
-  - RULE-SET,personal_telegram,Telegram
-  - RULE-SET,personal_telegram_2,Telegram
-  - RULE-SET,personal_telegram_3,Telegram
-  - RULE-SET,personal_singapore,TW_SG_Select
-  - RULE-SET,personal_jp_kr,JP_KR_Select
-  - RULE-SET,personal_im_services,IM_Service
-  - RULE-SET,personal_vps_play_ground,Play_Ground
-  - RULE-SET,personal_gaming,Gaming
-  - RULE-SET,personal_work_sus,Work_Sus
-  - RULE-SET,personal_work,Work
-  - RULE-SET,personal_apple,Apple
-  - RULE-SET,personal_download,Torrent
-  - RULE-SET,personal_china,Direct
-  - RULE-SET,personal_chinacompanyip,Direct
-  - RULE-SET,personal_chinadomain,Direct
-  - RULE-SET,personal_chinaip_custom,Direct
-  - RULE-SET,personal_global,Global
-  - RULE-SET,personal_global_2,Global
+  - RULE-SET,sensitive_personal_local_domains,Direct
+  - RULE-SET,rule_localareanetwork,Direct
+  - RULE-SET,rule_msservices,Microsoft
+  - RULE-SET,rule_unbreak,Direct
+  - RULE-SET,bm_advertisinglite,Ads
+  - RULE-SET,rule_netflix,Streaming_Media
+  - RULE-SET,rule_streaming_media_custom,Streaming_Media
+  - RULE-SET,bm_deezer,Streaming_Media
+  - RULE-SET,rule_netflix,Streaming_Media
+  - RULE-SET,bm_disney,Streaming_Media
+  - RULE-SET,bm_hbo,Streaming_Media
+  - RULE-SET,bm_youtube,Streaming_Media
+  - RULE-SET,rule_ai,AI
+  - RULE-SET,bm_openai,AI
+  - RULE-SET,bm_claude,AI
+  - RULE-SET,bm_gemini,AI
+  - RULE-SET,rule_social_media,Social_Media
+  - RULE-SET,bm_tiktok,Social_Media
+  - RULE-SET,cn_games,CN_Service
+  - RULE-SET,cn_epicgames,CN_Service
+  - RULE-SET,cn_nvidia,CN_Service
+  - RULE-SET,cn_apple,CN_Service
+  - RULE-SET,cn_microsoft,CN_Service
+  - RULE-SET,rule_bilibili,CN_Service
+  - RULE-SET,rule_iqiyi,CN_Service
+  - RULE-SET,rule_letv,CN_Service
+  - RULE-SET,rule_moo,CN_Service
+  - RULE-SET,rule_tencent_video,CN_Service
+  - RULE-SET,rule_youku,CN_Service
+  - RULE-SET,rule_cn_media_custom,CN_Service
+  - RULE-SET,rule_telegram,Telegram
+  - RULE-SET,rule_telegram_2,Telegram
+  - RULE-SET,rule_telegram,Telegram
+  - RULE-SET,rule_singapore,TW_SG_Select
+  - RULE-SET,rule_jp_kr,JP_KR_Select
+  - RULE-SET,rule_im_services,IM_Service
+  - RULE-SET,sensitive_vps_play_ground,Play_Ground
+  - RULE-SET,rule_gaming,Gaming
+  - RULE-SET,sensitive_work_sus,Work_Sus
+  - RULE-SET,sensitive_work,Work
+  - RULE-SET,rule_apple,Apple
+  - RULE-SET,rule_download,Torrent
+  - RULE-SET,rule_china,Direct
+  - RULE-SET,rule_chinacompanyip,Direct
+  - RULE-SET,rule_chinadomain,Direct
+  - RULE-SET,sensitive_chinaip_custom,Direct
+  - RULE-SET,rule_global,Proxy
+  - RULE-SET,rule_global_2,Proxy
   - GEOIP,CN,Direct,no-resolve
   - MATCH,Remaining

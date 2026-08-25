@@ -1,0 +1,160 @@
+# Mac Download
+PROCESS-NAME,aria2c
+PROCESS-NAME,fdm
+PROCESS-NAME,Folx
+PROCESS-NAME,NetTransport
+PROCESS-NAME,Thunder
+PROCESS-NAME,Transmission
+PROCESS-NAME,uTorrent
+PROCESS-NAME,WebTorrent
+PROCESS-NAME,WebTorrent Helper
+PROCESS-NAME,DownloadService
+PROCESS-NAME,Weiyun
+
+# bt
+DOMAIN-KEYWORD,aria2
+DOMAIN-KEYWORD,xunlei
+DOMAIN-KEYWORD,yunpan
+DOMAIN-KEYWORD,Thunder
+DOMAIN-KEYWORD,XLLiveUD
+URL-REGEX,(torrent|announce.php\?passkey=|tracker|BitTorrent|bt_key|ed2k|find_node|get_peers|info_hash|magnet:|peer_id=)
+PROCESS-NAME,aria2c.exe
+PROCESS-NAME,fdm.exe
+PROCESS-NAME,Folx.exe
+PROCESS-NAME,NetTransport.exe
+PROCESS-NAME,Thunder.exe
+PROCESS-NAME,Transmission.exe
+PROCESS-NAME,uTorrent.exe
+PROCESS-NAME,WebTorrent.exe
+PROCESS-NAME,WebTorrent Helper.exe
+DOMAIN-SUFFIX,smtp
+URL-REGEX,(Subject|HELO|SMTP)
+URL-REGEX,(api|ps|sv|offnavi|newvector|ulog.imap|newloc)(.map|).(baidu|n.shifen).com
+URL-REGEX,(.+.|^)(360|so|qihoo|360safe|qhimg|360totalsecurity|yunpan).(cn|com)
+URL-REGEX,(.+.)?(torrent|announce.php?passkey=|tracker|BitTorrent|bt_key|ed2k|find_node|get_peers|info_hash|magnet:|peer_id=|xunlei)(..+)?
+# XunLei
+URL-REGEX,(.?)(xunlei|sandai|Thunder|XLLiveUD)(.)
+PROCESS-NAME,DownloadService.exe
+# 360
+URL-REGEX,(.+\.|^)(360|so)\.(cn|com)
+# Tencent Weiyun
+PROCESS-NAME,Weiyun.exe
+#Baidu disk
+PROCESS-NAME,baidunetdisk.exe
+# Torrent Announcer
+DOMAIN-SUFFIX,1337x.gd
+DOMAIN-SUFFIX,1337x.is
+DOMAIN-SUFFIX,1337x.st
+DOMAIN-SUFFIX,1337x.to
+DOMAIN-SUFFIX,1337x.tw
+DOMAIN-SUFFIX,1337xto.to
+DOMAIN-SUFFIX,1337xx.to
+DOMAIN-SUFFIX,x1337x.eu
+DOMAIN-SUFFIX,x1337x.se
+DOMAIN-SUFFIX,x1337x.ws
+DOMAIN-SUFFIX,opentrackr.org
+DOMAIN-SUFFIX,rutracker.net
+DOMAIN-SUFFIX,abctorrents.xyz
+DOMAIN-SUFFIX,bitsearch.to
+DOMAIN-SUFFIX,bt4gprx.com
+DOMAIN-SUFFIX,btdig.com
+DOMAIN-SUFFIX,btmet.com
+DOMAIN-SUFFIX,cloudtorrents.com
+DOMAIN-SUFFIX,ext.to
+DOMAIN-SUFFIX,filemood.com
+DOMAIN-SUFFIX,idope.se
+DOMAIN-SUFFIX,knaben.eu
+DOMAIN-SUFFIX,magnetdl.com
+DOMAIN-SUFFIX,limetorrents.lol
+DOMAIN-SUFFIX,developify.ca
+DOMAIN-SUFFIX,torrentdownloads.pro
+DOMAIN-SUFFIX,torrentgalaxy.to
+DOMAIN-SUFFIX,torrentdownload.info
+DOMAIN-SUFFIX,torrentquest.com
+DOMAIN-SUFFIX,torrentleech.org
+DOMAIN-SUFFIX,eztvx.to
+# Pirate Streaming Site
+DOMAIN-SUFFIX,braflix.gd
+DOMAIN-SUFFIX,freek.to
+DOMAIN-SUFFIX,hydrahd.com
+DOMAIN-SUFFIX,nepu.to
+DOMAIN-SUFFIX,nunflix.live
+DOMAIN-SUFFIX,rivestream.live
+DOMAIN-SUFFIX,smashystream.com
+DOMAIN-SUFFIX,vidplay.org
+DOMAIN-SUFFIX,fmovies-hd.to
+DOMAIN-SUFFIX,fmoviesto.cc
+DOMAIN-SUFFIX,velcronwave.site
+DOMAIN-SUFFIX,raffaellocdn.net
+# > Private Tracker
+DOMAIN-SUFFIX,acg.rip
+DOMAIN-SUFFIX,animebytes.tv
+DOMAIN-SUFFIX,awesome-hd.me
+DOMAIN-SUFFIX,broadcasthe.net
+DOMAIN-SUFFIX,chdbits.co
+DOMAIN-SUFFIX,classix-unlimited.co.uk
+DOMAIN-SUFFIX,comicat.org
+DOMAIN-SUFFIX,empornium.me
+DOMAIN-SUFFIX,gazellegames.net
+DOMAIN-SUFFIX,hdbits.org
+DOMAIN-SUFFIX,hdchina.org
+DOMAIN-SUFFIX,hddolby.com
+DOMAIN-SUFFIX,hdhome.org
+DOMAIN-SUFFIX,hdsky.me
+DOMAIN-SUFFIX,icetorrent.org
+DOMAIN-SUFFIX,jpopsuki.eu
+DOMAIN-SUFFIX,keepfrds.com
+DOMAIN-SUFFIX,madsrevolution.net
+DOMAIN-SUFFIX,morethan.tv
+DOMAIN-SUFFIX,m-team.cc
+DOMAIN-SUFFIX,myanonamouse.net
+DOMAIN-SUFFIX,nanyangpt.com
+DOMAIN-SUFFIX,ncore.cc
+DOMAIN-SUFFIX,open.cd
+DOMAIN-SUFFIX,ourbits.club
+DOMAIN-SUFFIX,passthepopcorn.me
+DOMAIN-SUFFIX,privatehd.to
+DOMAIN-SUFFIX,pterclub.com
+DOMAIN-SUFFIX,redacted.ch
+DOMAIN-SUFFIX,springsunday.net
+DOMAIN-SUFFIX,tjupt.org
+DOMAIN-SUFFIX,totheglory.im
+# Xunlei 迅雷
+DOMAIN-SUFFIX,00cdn.com
+DOMAIN-SUFFIX,88cdn.com
+DOMAIN-SUFFIX,kanimg.com
+DOMAIN-SUFFIX,kankan.com
+DOMAIN-SUFFIX,p2cdn.com
+DOMAIN-SUFFIX,sandai.net
+DOMAIN-SUFFIX,thundercdn.com
+DOMAIN-SUFFIX,xunlei.com
+# YYeTs 人人影视
+DOMAIN-SUFFIX,got001.com
+DOMAIN-SUFFIX,p4pfile.com
+DOMAIN-SUFFIX,rrys.tv
+DOMAIN-SUFFIX,rrys2020.com
+DOMAIN-SUFFIX,yyets.com
+DOMAIN-SUFFIX,zimuzu.io
+DOMAIN-SUFFIX,zimuzu.tv
+DOMAIN-SUFFIX,zmz001.com
+DOMAIN-SUFFIX,zmz002.com
+DOMAIN-SUFFIX,zmz003.com
+DOMAIN-SUFFIX,zmz004.com
+DOMAIN-SUFFIX,zmz2019.com
+DOMAIN-SUFFIX,zmzapi.com
+DOMAIN-SUFFIX,zmzapi.net
+DOMAIN-SUFFIX,zmzfile.com
+# Private Tracker
+DOMAIN-SUFFIX,animetorrents.me
+DOMAIN-SUFFIX,beitai.pt
+DOMAIN-SUFFIX,bittorrent.com
+DOMAIN-SUFFIX,hd4fans.org
+DOMAIN-SUFFIX,hdtime.org
+DOMAIN-SUFFIX,hdzone.me
+DOMAIN-SUFFIX,leaguehd.com
+DOMAIN-SUFFIX,msg.vg
+DOMAIN-SUFFIX,pthome.net
+DOMAIN-SUFFIX,trontv.com
+# DOMAIN-KEYWORD,announce
+DOMAIN-KEYWORD,torrent
+# DOMAIN-KEYWORD,tracker

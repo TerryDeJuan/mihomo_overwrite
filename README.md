@@ -56,3 +56,10 @@ The update command changes pinned commits locally; review the diff before commit
 - `rules/local-*.list` — sanitized, intentionally empty local rule lists ready for personal entries.
 
 Run `python3 tests/validate.py` before publishing. The validator checks that required entry points exist and that obvious credential markers are absent.
+
+## Licensing and attribution
+
+This repository is an aggregate of original material, separate upstream submodules,
+adapted scripts, and third-party rule providers. See [THIRD_PARTY.md](THIRD_PARTY.md)
+for source-specific notices and [docs/licensing.md](docs/licensing.md) for the current
+licensing policy. No repository-level license overrides an upstream work's terms.
