@@ -496,7 +496,7 @@ rule-providers:
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/Home_Block.list'
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/Home_Block.list'
     path: './ruleset/home_block.list'
   bm_china:
     type: http
