@@ -39,6 +39,24 @@ def validate_primary_config(path: Path) -> Tuple[int, int, int]:
     assert auto_common["type"] == "url-test"
     assert auto_common["include-all"] is True
     assert auto_common["exclude-type"] == "DIRECT"
+    expected_filters = {
+        "US": "US_filter",
+        "JP_KR": "JP_KR_filter",
+        "TW_SG": "TW_SG_filter",
+        "Media": "Media_filter",
+        "EU": "EU_filter",
+        "HK": "HK_filter",
+        "DMCA": "DMCA_filter",
+    }
+    assert set(parsed["group_filter"]) == set(expected_filters.values())
+    groups_by_name = {group["name"]: group for group in parsed["proxy-groups"]}
+    for group_prefix, filter_name in expected_filters.items():
+        expected_filter = parsed["group_filter"][filter_name]["filter"]
+        select_group = groups_by_name[f"{group_prefix}_Select"]
+        auto_group = groups_by_name[f"{group_prefix}_Auto"]
+        assert select_group["filter"] == expected_filter
+        assert auto_group["filter"] == expected_filter
+        assert select_group["include-all"] is True
     for group in parsed["proxy-groups"]:
         expected_type = (
             "url-test"

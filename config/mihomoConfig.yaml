@@ -485,6 +485,17 @@ group_common:
       exclude-type: 'DIRECT',
     }
 
+# --- Group filters ---
+# Shared by each region/service Select and Auto pair.
+group_filter:
+  US_filter: &US_filter { filter: '(?i:\bUS[A]?\b|广美|美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|🇨🇦|\bCA|Canada|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇺🇸|United States|UnitedStates|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC)' }
+  JP_KR_filter: &JP_KR_filter { filter: '(?i:\bJP[N]?\b|广日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日|NRT|广韩|韩国|\bKR|首尔|春川|🇰🇷|Korea)' }
+  TW_SG_filter: &TW_SG_filter { filter: '(?i:\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b|广台|台湾|Tai Wan|TaiWan|\bTPE|Taipei|广台|台湾|\bTW|Tai Wan|🇹🇼|TaiWan|\bTPE|Taipei|广新|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|Singapore|新加坡|狮城|[^-]新|\bSIN)' }
+  Media_filter: &Media_filter { filter: '(美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇨🇦|\bCA|Canada|🇺🇸|United States|UnitedStates|解锁|\bNF|Netflix|奈飞|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC|\bJP|Japan|Tokyo|Osaka|Saitama|🇯🇵|日本|东京|大阪|埼玉|[^-]日|NRT)' }
+  EU_filter: &EU_filter { filter: '(🇪🇺|也纳|克兰|比利时|尔兰|立陶宛|冰岛|秘鲁|耳其|利亚|埃及|希腊|斯洛伐克|芬兰|英国|德国|意大|法国|罗斯|瑞士|瑞典|荷兰|比亚|班牙|🇮🇹|🇫🇷|Ita|Fran|🇰🇿|Kaz|🇩🇪|Ger|🇬🇧|Kin|^UK|Brit|Tur|🇹🇷|🇵🇰|Paki|🇦🇺|Aus|🇨🇭|Swi|🇷🇺|Rus|Ukr|🇺🇦|Est|🇪🇪|Neth|🇳🇱|\bRU|\bFR|France|Paris|巴黎|CDG|^ES|🇪🇸|^IL|🇮🇱|^SE|🇸🇪|🇬🇷|i:\bGR[P]?\b)' }
+  HK_filter: &HK_filter { filter: '(HKBN|港|广港|香港|\bHK|Hong Kong|🇭🇰|HongKong|i:\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)' }
+  DMCA_filter: &DMCA_filter { filter: '(Neth|🇳🇱|Lux|罗斯|🇷🇺|Rus|广新|新加坡|坡|狮城|🇸🇬|Singapore|Mala|马来|立陶宛|利亚|Bul|瑞典|荷兰|比亚|Kaz|Paki|Swi|Est|🇪🇪|\bRU\b|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|i:\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新|\bSIN|🇪🇸|i:\bES[P]?\b|i:\bDE[U]?\b|🇩🇪)' }
+
 # --- Proxy groups from groups.toml; emoji prefixes removed; Global -> Proxy; CN_Media -> CN_Service ---
 proxy-groups:
   - name: 'Proxy'
@@ -530,39 +541,32 @@ proxy-groups:
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png'
   - name: 'US_Select'
-    <<: *group_common_select
+    <<: [*group_common_select, *US_filter]
     include-all: true
-    filter: '(?i:\bUS[A]?\b|广美|美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|🇨🇦|\bCA|Canada|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇺🇸|United States|UnitedStates|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png'
   - name: 'JP_KR_Select'
-    <<: *group_common_select
+    <<: [*group_common_select, *JP_KR_filter]
     include-all: true
-    filter: '(?i:\bJP[N]?\b|广日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日|NRT|广韩|韩国|\bKR|首尔|春川|🇰🇷|Korea)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
   - name: 'TW_SG_Select'
-    <<: *group_common_select
+    <<: [*group_common_select, *TW_SG_filter]
     include-all: true
-    filter: '(?i:\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b|广台|台湾|Tai Wan|TaiWan|\bTPE|Taipei|广台|台湾|\bTW|Tai Wan|🇹🇼|TaiWan|\bTPE|Taipei|广新|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|Singapore|新加坡|狮城|[^-]新|\bSIN)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png'
   - name: 'Media_Select'
-    <<: *group_common_select
+    <<: [*group_common_select, *Media_filter]
     include-all: true
-    filter: '(美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇨🇦|\bCA|Canada|🇺🇸|United States|UnitedStates|解锁|\bNF|Netflix|奈飞|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC|\bJP|Japan|Tokyo|Osaka|Saitama|🇯🇵|日本|东京|大阪|埼玉|[^-]日|NRT)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
   - name: 'EU_Select'
-    <<: *group_common_select
+    <<: [*group_common_select, *EU_filter]
     include-all: true
-    filter: '(🇪🇺|也纳|克兰|比利时|尔兰|立陶宛|冰岛|秘鲁|耳其|利亚|埃及|希腊|斯洛伐克|芬兰|英国|德国|意大|法国|罗斯|瑞士|瑞典|荷兰|比亚|班牙|🇮🇹|🇫🇷|Ita|Fran|🇰🇿|Kaz|🇩🇪|Ger|🇬🇧|Kin|^UK|Brit|Tur|🇹🇷|🇵🇰|Paki|🇦🇺|Aus|🇨🇭|Swi|🇷🇺|Rus|Ukr|🇺🇦|Est|🇪🇪|Neth|🇳🇱|\bRU|\bFR|France|Paris|巴黎|CDG|^ES|🇪🇸|^IL|🇮🇱|^SE|🇸🇪|🇬🇷|i:\bGR[P]?\b)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Europe.png'
   - name: 'HK_Select'
-    <<: *group_common_select
+    <<: [*group_common_select, *HK_filter]
     include-all: true
-    filter: '(HKBN|港|广港|香港|\bHK|Hong Kong|🇭🇰|HongKong|i:\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
   - name: 'DMCA_Select'
-    <<: *group_common_select
+    <<: [*group_common_select, *DMCA_filter]
     include-all: true
-    filter: '(Neth|🇳🇱|Lux|罗斯|🇷🇺|Rus|广新|新加坡|坡|狮城|🇸🇬|Singapore|Mala|马来|立陶宛|利亚|Bul|瑞典|荷兰|比亚|Kaz|Paki|Swi|Est|🇪🇪|\bRU\b|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|i:\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新|\bSIN|🇪🇸|i:\bES[P]?\b|i:\bDE[U]?\b|🇩🇪)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate_Nation.png'
   - name: 'Work'
     <<: *group_common_select
@@ -604,42 +608,35 @@ proxy-groups:
     <<: *group_common_auto
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png'
   - name: 'US_Auto'
-    <<: *group_common_auto
-    filter: '(?i:\bUS[A]?\b|广美|美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|🇨🇦|\bCA|Canada|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇺🇸|United States|UnitedStates|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC)'
+    <<: [*group_common_auto, *US_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png'
   - name: 'JP_KR_Auto'
-    <<: *group_common_auto
-    filter: '(?i:\bJP[N]?\b|广日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日|NRT|广韩|韩国|\bKR|首尔|春川|🇰🇷|Korea)'
+    <<: [*group_common_auto, *JP_KR_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
   - name: 'TW_SG_Auto'
-    <<: *group_common_auto
-    filter: '(?i:\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b|广台|台湾|Tai Wan|TaiWan|\bTPE|Taipei|广台|台湾|\bTW|Tai Wan|🇹🇼|TaiWan|\bTPE|Taipei|广新|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|Singapore|新加坡|狮城|[^-]新|\bSIN)'
+    <<: [*group_common_auto, *TW_SG_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png'
   - name: 'Media_Auto'
-    <<: *group_common_auto
-    filter: '(?i:\bUS[A]?\b|美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇨🇦|\bCA|Canada|🇺🇸|United States|UnitedStates|解锁|\bNF|Netflix|奈飞|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC|\bJP|Japan|Tokyo|Osaka|Saitama|🇯🇵|日本|东京|大阪|埼玉|[^-]日|NRT)'
+    <<: [*group_common_auto, *Media_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
   - name: 'EU_Auto'
-    <<: *group_common_auto
-    filter: '(🇪🇺|也纳|克兰|比利时|尔兰|立陶宛|冰岛|秘鲁|耳其|利亚|埃及|希腊|斯洛伐克|芬兰|英国|德国|意大|法国|罗斯|瑞士|瑞典|荷兰|比亚|班牙|🇮🇹|🇫🇷|Ita|Fran|🇰🇿|Kaz|🇩🇪|Ger|🇬🇧|Kin|^UK|Brit|Tur|🇹🇷|🇵🇰|Paki|🇦🇺|Aus|🇨🇭|Swi|🇷🇺|Rus|Ukr|🇺🇦|Est|🇪🇪|Neth|🇳🇱|\bRU|\bFR|France|Paris|巴黎|CDG|^ES|🇪🇸|^IL|🇮🇱|^SE|🇸🇪|🇬🇷|i:\bGR[P]?\b)'
+    <<: [*group_common_auto, *EU_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Europe.png'
   - name: 'HK_Auto'
-    <<: *group_common_auto
-    filter: '(?i:\bHK[G]?\b|HKBN|港|广港|香港|\bHK|Hong Kong|🇭🇰|HongKong|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)'
+    <<: [*group_common_auto, *HK_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
   - name: 'DMCA_Auto'
-    <<: *group_common_auto
-    filter: '(Neth|🇳🇱|Lux|罗斯|🇷🇺|Rus|广新|新加坡|坡|狮城|🇸🇬|Singapore|Mala|马来|立陶宛|利亚|Bul|瑞典|荷兰|比亚|Kaz|Paki|Swi|Est|🇪🇪|\bRU\b|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|i:\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新|\bSIN|🇪🇸|i:\bES[P]?\b|i:\bDE[U]?\b|🇩🇪)'
+    <<: [*group_common_auto, *DMCA_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate.png'
 
 # --- Ordered routing policy ---
 rules:
-  # 私有网络直连
+  # Private network direct routing
   - RULE-SET,legacy_local_domains,Direct
   - RULE-SET,legacy_localareanetwork,Direct
   - RULE-SET,private,Direct
 
-  # 国内直连
+  # Domestic direct routing
   - RULE-SET,legacy_unbreak,Direct
   - RULE-SET,games_cn,Direct
   - RULE-SET,epicgames,Direct
@@ -654,10 +651,10 @@ rules:
   - RULE-SET,bm_youku,Direct
   - RULE-SET,legacy_cn_media,Direct
 
-  # 广告拦截
+  # Advertising blocking
   - RULE-SET,bm_advertisinglite,Ads
 
-  # 代理规则
+  # Proxy routing
   - RULE-SET,legacy_work_sus,Work_Sus
   - RULE-SET,legacy_work,Work
   - RULE-SET,legacy_msservices,Microsoft
@@ -683,7 +680,7 @@ rules:
   - RULE-SET,bm_apple,Apple
   - RULE-SET,legacy_download,Torrent
 
-  # 兜底规则
+  # Fallback routing
   - RULE-SET,bm_global,Proxy
   - RULE-SET,legacy_global,Proxy
   - RULE-SET,bm_china,Direct
