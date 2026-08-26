@@ -6,7 +6,7 @@ DOMAIN-SUFFIX,discord.app
 DOMAIN-SUFFIX,discord.media
 DOMAIN-SUFFIX,discordapp.net
 DOMAIN-SUFFIX,discordapp.com
-IPCIDR,66.22.230.138/32,no-resolve
+IP-CIDR,66.22.230.138/32,no-resolve
 DOMAIN-SUFFIX,discord.co
 
 # > Signal
