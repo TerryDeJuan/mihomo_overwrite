@@ -20,6 +20,7 @@ def validate_primary_config(path: Path) -> Tuple[int, int, int]:
     provider_section, remainder = text.split("\nproxy-groups:\n", 1)
     group_section, rule_section = remainder.split("\nrules:\n", 1)
     provider_section = provider_section.split("\nrule-providers:\n", 1)[1]
+    provider_section = provider_section.split("\ngroup_common:\n", 1)[0]
 
     providers = set(re.findall(r"(?m)^  ([A-Za-z0-9_-]+):$", provider_section))
     groups = set(re.findall(r"(?m)^  - name: '([^']+)'$", group_section))
@@ -30,9 +31,28 @@ def validate_primary_config(path: Path) -> Tuple[int, int, int]:
     assert rules, "primary config has no rules"
     assert "Proxy" in groups and "Global" not in groups
     assert "CN_Service" in groups
+    assert "group_common" in parsed
+    assert "group_common_load" not in parsed["group_common"]
+    select_common = parsed["group_common"]["group_common_select"]
+    auto_common = parsed["group_common"]["group_common_auto"]
+    assert select_common["type"] == "select"
+    assert auto_common["type"] == "url-test"
+    assert auto_common["include-all"] is True
+    assert auto_common["exclude-type"] == "DIRECT"
+    for group in parsed["proxy-groups"]:
+        expected_type = (
+            "url-test"
+            if group["name"].endswith("_Auto") or group["name"] == "Auto_All"
+            else "select"
+        )
+        assert group["type"] == expected_type
     assert rules[-1] == "MATCH,Remaining", "MATCH,Remaining must be last"
     assert "GEOIP,CN,Direct,no-resolve" in rules
     assert "home.list" not in text
+    assert "RULE-SET,private,Direct" in rules
+    assert not any(provider.startswith("rule_") for provider in providers)
+    assert not any(provider.startswith("sensitive_") for provider in providers)
+    assert len(rules) == len(set(rules)), "routing rules must not be duplicated"
 
     paths = re.findall(r"(?m)^    path: '([^']+)'$", provider_section)
     assert len(paths) == len(set(paths)), "rule-provider cache paths must be unique"

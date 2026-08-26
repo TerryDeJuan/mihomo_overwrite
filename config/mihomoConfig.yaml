@@ -120,84 +120,84 @@ rule-providers:
     format: mrs
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs'
-    path: './ruleset/private.list'
+    path: './ruleset/private.mrs'
   fakeip_filter:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/fakeip-filter.mrs'
-    path: './ruleset/fakeip_filter.list'
+    path: './ruleset/fakeip_filter.mrs'
   cn:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/direct.mrs'
-    path: './ruleset/cn.list'
-  cn_games:
+    path: './ruleset/cn.mrs'
+  games_cn:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs'
-    path: './ruleset/cn_games.mrs'
-  cn_epicgames:
+    path: './ruleset/games_cn.mrs'
+  epicgames:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/epicgames.mrs'
-    path: './ruleset/cn_epicgames.mrs'
-  cn_nvidia:
+    path: './ruleset/epicgames.mrs'
+  nvidia_cn:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nvidia@cn.mrs'
-    path: './ruleset/cn_nvidia.mrs'
-  cn_apple:
+    path: './ruleset/nvidia_cn.mrs'
+  apple_cn:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple@cn.mrs'
-    path: './ruleset/cn_apple.mrs'
-  cn_microsoft:
+    path: './ruleset/apple_cn.mrs'
+  microsoft_cn:
     type: http
     behavior: domain
     format: mrs
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs'
-    path: './ruleset/cn_microsoft.mrs'
-  sensitive_personal_local_domains:
+    path: './ruleset/microsoft_cn.mrs'
+  legacy_local_domains:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://rules.example.net/personal/custom/sensitive/personal_local_domains.list'
-    path: './ruleset/sensitive_personal_local_domains.list'
-  rule_localareanetwork:
+    path: './ruleset/legacy_local_domains.list'
+  legacy_localareanetwork:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/LocalAreaNetwork.list'
-    path: './ruleset/rule_localareanetwork.list'
-  rule_msservices:
+    path: './ruleset/legacy_localareanetwork.list'
+  legacy_msservices:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/MSServices.list'
-    path: './ruleset/rule_msservices.list'
-  rule_unbreak:
+    path: './ruleset/legacy_msservices.list'
+  legacy_unbreak:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/DivineEngine/Surge/Ruleset/Unbreak.list'
-    path: './ruleset/rule_unbreak.list'
+    path: './ruleset/legacy_unbreak.list'
   bm_advertisinglite:
     type: http
     behavior: classical
@@ -205,20 +205,20 @@ rule-providers:
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.list'
     path: './ruleset/bm_advertisinglite.list'
-  rule_netflix:
+  bm_netflix:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list'
-    path: './ruleset/rule_netflix.list'
-  rule_streaming_media_custom:
+    path: './ruleset/bm_netflix.list'
+  legacy_streaming_media:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Streaming_Media_Custom.list'
-    path: './ruleset/rule_streaming_media_custom.list'
+    path: './ruleset/legacy_streaming_media.list'
   bm_deezer:
     type: http
     behavior: classical
@@ -247,13 +247,13 @@ rule-providers:
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list'
     path: './ruleset/bm_youtube.list'
-  rule_ai:
+  legacy_ai:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/AI.list'
-    path: './ruleset/rule_ai.list'
+    path: './ruleset/legacy_ai.list'
   bm_openai:
     type: http
     behavior: classical
@@ -275,13 +275,13 @@ rule-providers:
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list'
     path: './ruleset/bm_gemini.list'
-  rule_social_media:
+  legacy_social_media:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Social_Media.list'
-    path: './ruleset/rule_social_media.list'
+    path: './ruleset/legacy_social_media.list'
   bm_tiktok:
     type: http
     behavior: classical
@@ -289,62 +289,62 @@ rule-providers:
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list'
     path: './ruleset/bm_tiktok.list'
-  rule_bilibili:
+  bm_bilibili:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.list'
-    path: './ruleset/rule_bilibili.list'
-  rule_iqiyi:
+    path: './ruleset/bm_bilibili.list'
+  bm_iqiyi:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/iQIYI/iQIYI.list'
-    path: './ruleset/rule_iqiyi.list'
-  rule_letv:
+    path: './ruleset/bm_iqiyi.list'
+  bm_letv:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/LeTV/LeTV.list'
-    path: './ruleset/rule_letv.list'
-  rule_moo:
+    path: './ruleset/bm_letv.list'
+  acl_moo:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MOO.list'
-    path: './ruleset/rule_moo.list'
-  rule_tencent_video:
+    path: './ruleset/acl_moo.list'
+  acl_tencent_video:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TencentVideo.list'
-    path: './ruleset/rule_tencent_video.list'
-  rule_youku:
+    path: './ruleset/acl_tencent_video.list'
+  bm_youku:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Youku/Youku.list'
-    path: './ruleset/rule_youku.list'
-  rule_cn_media_custom:
+    path: './ruleset/bm_youku.list'
+  legacy_cn_media:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/CN_Media_Custom.list'
-    path: './ruleset/rule_cn_media_custom.list'
-  rule_telegram:
+    path: './ruleset/legacy_cn_media.list'
+  bm_telegram:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list'
-    path: './ruleset/rule_telegram.list'
+    path: './ruleset/bm_telegram.list'
   legacy_telegram:
     type: http
     behavior: classical
@@ -352,104 +352,104 @@ rule-providers:
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Telegram.list'
     path: './ruleset/legacy_telegram.list'
-  rule_singapore:
+  legacy_singapore:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Singapore.list'
-    path: './ruleset/rule_singapore.list'
-  rule_jp_kr:
+    path: './ruleset/legacy_singapore.list'
+  legacy_jp_kr:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/JP_KR.list'
-    path: './ruleset/rule_jp_kr.list'
-  rule_im_services:
+    path: './ruleset/legacy_jp_kr.list'
+  legacy_im_services:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/IM_Services.list'
-    path: './ruleset/rule_im_services.list'
-  sensitive_vps_play_ground:
+    path: './ruleset/legacy_im_services.list'
+  legacy_vps_play_ground:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://rules.example.net/personal/custom/sensitive/VPS_Play_Ground.list'
-    path: './ruleset/sensitive_vps_play_ground.list'
-  rule_gaming:
+    path: './ruleset/legacy_vps_play_ground.list'
+  legacy_gaming:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Gaming.list'
-    path: './ruleset/rule_gaming.list'
-  sensitive_work_sus:
+    path: './ruleset/legacy_gaming.list'
+  legacy_work_sus:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://rules.example.net/personal/custom/sensitive/Work_sus.list'
-    path: './ruleset/sensitive_work_sus.list'
-  sensitive_work:
+    path: './ruleset/legacy_work_sus.list'
+  legacy_work:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://rules.example.net/personal/custom/sensitive/Work.list'
-    path: './ruleset/sensitive_work.list'
-  rule_apple:
+    path: './ruleset/legacy_work.list'
+  bm_apple:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list'
-    path: './ruleset/rule_apple.list'
-  rule_download:
+    path: './ruleset/bm_apple.list'
+  legacy_download:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Download.list'
-    path: './ruleset/rule_download.list'
-  rule_china:
+    path: './ruleset/legacy_download.list'
+  bm_china:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list'
-    path: './ruleset/rule_china.list'
-  rule_chinacompanyip:
+    path: './ruleset/bm_china.list'
+  acl_chinacompanyip:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list'
-    path: './ruleset/rule_chinacompanyip.list'
-  rule_chinadomain:
+    path: './ruleset/acl_chinacompanyip.list'
+  acl_chinadomain:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list'
-    path: './ruleset/rule_chinadomain.list'
-  sensitive_chinaip_custom:
+    path: './ruleset/acl_chinadomain.list'
+  legacy_chinaip:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://rules.example.net/personal/custom/sensitive/ChinaIP_Custom.list'
-    path: './ruleset/sensitive_chinaip_custom.list'
-  rule_global:
+    path: './ruleset/legacy_chinaip.list'
+  bm_global:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list'
-    path: './ruleset/rule_global.list'
+    path: './ruleset/bm_global.list'
   legacy_global:
     type: http
     behavior: classical
@@ -458,219 +458,238 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Global.list'
     path: './ruleset/legacy_global.list'
 
+# --- Proxy group common configuration ---
+# Load balancing is intentionally omitted; this config uses select and url-test groups only.
+group_common:
+  group_common_select:
+    &group_common_select {
+      type: select,
+      interval: 300,
+      timeout: 3000,
+      max-failed-times: 3,
+      empty-fallback: REJECT,
+      url: 'https://www.gstatic.com/generate_204',
+      lazy: true,
+    }
+  group_common_auto:
+    &group_common_auto {
+      type: url-test,
+      interval: 300,
+      timeout: 3000,
+      max-failed-times: 3,
+      empty-fallback: REJECT,
+      url: 'https://www.gstatic.com/generate_204',
+      lazy: true,
+      tolerance: 150,
+      include-all: true,
+      exclude-type: 'DIRECT',
+    }
+
 # --- Proxy groups from groups.toml; emoji prefixes removed; Global -> Proxy; CN_Media -> CN_Service ---
 proxy-groups:
   - name: 'Proxy'
-    type: select
+    <<: *group_common_select
     proxies: ['US_Auto', 'US_Select', 'Auto_All', 'Media_Auto', 'Media_Select', 'Direct', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'DMCA_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'DMCA_Select', 'Block']
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png'
   - name: 'Streaming_Media'
-    type: select
+    <<: *group_common_select
     proxies: ['Media_Select', 'Media_Auto', 'Proxy', 'US_Auto', 'US_Select', 'JP_KR_Auto', 'JP_KR_Select', 'Auto_All', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
   - name: 'AI'
-    type: select
+    <<: *group_common_select
     proxies: ['Media_Select', 'US_Select', 'Media_Auto', 'Proxy', 'US_Auto', 'Direct', 'Auto_All', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png'
   - name: 'Microsoft'
-    type: select
+    <<: *group_common_select
     proxies: ['Proxy', 'US_Auto', 'Auto_All', 'US_Select', 'TW_SG_Auto', 'TW_SG_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png'
   - name: 'Telegram'
-    type: select
+    <<: *group_common_select
     proxies: ['TW_SG_Select', 'TW_SG_Auto', 'US_Auto', 'Proxy', 'US_Select', 'JP_KR_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'EU_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
   - name: 'Social_Media'
-    type: select
+    <<: *group_common_select
     proxies: ['TW_SG_Select', 'Proxy', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'EU_Select', 'HK_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/NX211/homer-icons@master/png/mastodon.png'
   - name: 'IM_Service'
-    type: select
+    <<: *group_common_select
     proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Proxy', 'US_Auto', 'US_Select', 'TW_SG_Select', 'TW_SG_Auto', 'HK_Auto', 'HK_Select', 'Auto_All', 'EU_Auto', 'EU_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/NX211/homer-icons@master/png/signal.png'
   - name: 'Gaming'
-    type: select
+    <<: *group_common_select
     proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Direct', 'US_Auto', 'US_Select', 'Proxy', 'Auto_All', 'TW_SG_Auto', 'HK_Auto', 'TW_SG_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png'
   - name: 'Remaining'
-    type: select
+    <<: *group_common_select
     proxies: ['Proxy', 'Media_Auto', 'Media_Select', 'Direct', 'Auto_All', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'DMCA_Auto', 'US_Select', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'DMCA_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Stack.png'
   - name: 'Play_Ground'
-    type: select
+    <<: *group_common_select
     proxies: ['Proxy', 'Direct', 'Block']
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png'
   - name: 'US_Select'
-    type: select
+    <<: *group_common_select
+    include-all: true
     filter: '(?i:\bUS[A]?\b|广美|美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|🇨🇦|\bCA|Canada|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇺🇸|United States|UnitedStates|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png'
   - name: 'JP_KR_Select'
-    type: select
+    <<: *group_common_select
+    include-all: true
     filter: '(?i:\bJP[N]?\b|广日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日|NRT|广韩|韩国|\bKR|首尔|春川|🇰🇷|Korea)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
   - name: 'TW_SG_Select'
-    type: select
+    <<: *group_common_select
+    include-all: true
     filter: '(?i:\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b|广台|台湾|Tai Wan|TaiWan|\bTPE|Taipei|广台|台湾|\bTW|Tai Wan|🇹🇼|TaiWan|\bTPE|Taipei|广新|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|Singapore|新加坡|狮城|[^-]新|\bSIN)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png'
   - name: 'Media_Select'
-    type: select
+    <<: *group_common_select
+    include-all: true
     filter: '(美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇨🇦|\bCA|Canada|🇺🇸|United States|UnitedStates|解锁|\bNF|Netflix|奈飞|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC|\bJP|Japan|Tokyo|Osaka|Saitama|🇯🇵|日本|东京|大阪|埼玉|[^-]日|NRT)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
   - name: 'EU_Select'
-    type: select
+    <<: *group_common_select
+    include-all: true
     filter: '(🇪🇺|也纳|克兰|比利时|尔兰|立陶宛|冰岛|秘鲁|耳其|利亚|埃及|希腊|斯洛伐克|芬兰|英国|德国|意大|法国|罗斯|瑞士|瑞典|荷兰|比亚|班牙|🇮🇹|🇫🇷|Ita|Fran|🇰🇿|Kaz|🇩🇪|Ger|🇬🇧|Kin|^UK|Brit|Tur|🇹🇷|🇵🇰|Paki|🇦🇺|Aus|🇨🇭|Swi|🇷🇺|Rus|Ukr|🇺🇦|Est|🇪🇪|Neth|🇳🇱|\bRU|\bFR|France|Paris|巴黎|CDG|^ES|🇪🇸|^IL|🇮🇱|^SE|🇸🇪|🇬🇷|i:\bGR[P]?\b)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Europe.png'
   - name: 'HK_Select'
-    type: select
+    <<: *group_common_select
+    include-all: true
     filter: '(HKBN|港|广港|香港|\bHK|Hong Kong|🇭🇰|HongKong|i:\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
   - name: 'DMCA_Select'
-    type: select
+    <<: *group_common_select
+    include-all: true
     filter: '(Neth|🇳🇱|Lux|罗斯|🇷🇺|Rus|广新|新加坡|坡|狮城|🇸🇬|Singapore|Mala|马来|立陶宛|利亚|Bul|瑞典|荷兰|比亚|Kaz|Paki|Swi|Est|🇪🇪|\bRU\b|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|i:\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新|\bSIN|🇪🇸|i:\bES[P]?\b|i:\bDE[U]?\b|🇩🇪)'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate_Nation.png'
   - name: 'Work'
-    type: select
+    <<: *group_common_select
     proxies: ['Telegram', 'Direct', 'Block', 'Proxy']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Work.png'
   - name: 'Work_Sus'
-    type: select
+    <<: *group_common_select
     proxies: ['Block', 'Direct', 'Proxy', 'Telegram']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Null_Nation.png'
   - name: 'CN_Service'
-    type: select
+    <<: *group_common_select
     proxies: ['Direct', 'Block', 'HK_Auto', 'HK_Select']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png'
   - name: 'Apple'
-    type: select
+    <<: *group_common_select
     proxies: ['Proxy', 'Direct', 'Auto_All', 'US_Auto', 'HK_Auto', 'US_Select', 'HK_Select']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png'
   - name: 'Ads'
-    type: select
+    <<: *group_common_select
     proxies: ['Block', 'Direct', 'Proxy']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
   - name: 'Home'
-    type: select
+    <<: *group_common_select
     proxies: ['Block', 'Direct']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/House.png'
   - name: 'Torrent'
-    type: select
+    <<: *group_common_select
     proxies: ['DMCA_Select', 'DMCA_Auto', 'Proxy', 'Direct', 'Auto_All', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png'
   - name: 'Direct'
-    type: select
+    <<: *group_common_select
     proxies: ['DIRECT']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China_Map.png'
   - name: 'Block'
-    type: select
+    <<: *group_common_select
     proxies: ['REJECT', 'DIRECT']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Reject.png'
   - name: 'Auto_All'
-    type: url-test
-    include-all: true
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 150
+    <<: *group_common_auto
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png'
   - name: 'US_Auto'
-    type: url-test
+    <<: *group_common_auto
     filter: '(?i:\bUS[A]?\b|广美|美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|🇨🇦|\bCA|Canada|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇺🇸|United States|UnitedStates|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC)'
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 150
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png'
   - name: 'JP_KR_Auto'
-    type: url-test
+    <<: *group_common_auto
     filter: '(?i:\bJP[N]?\b|广日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日|NRT|广韩|韩国|\bKR|首尔|春川|🇰🇷|Korea)'
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 150
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
   - name: 'TW_SG_Auto'
-    type: url-test
+    <<: *group_common_auto
     filter: '(?i:\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b|广台|台湾|Tai Wan|TaiWan|\bTPE|Taipei|广台|台湾|\bTW|Tai Wan|🇹🇼|TaiWan|\bTPE|Taipei|广新|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|Singapore|新加坡|狮城|[^-]新|\bSIN)'
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 150
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png'
   - name: 'Media_Auto'
-    type: url-test
+    <<: *group_common_auto
     filter: '(?i:\bUS[A]?\b|美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇨🇦|\bCA|Canada|🇺🇸|United States|UnitedStates|解锁|\bNF|Netflix|奈飞|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC|\bJP|Japan|Tokyo|Osaka|Saitama|🇯🇵|日本|东京|大阪|埼玉|[^-]日|NRT)'
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 150
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
   - name: 'EU_Auto'
-    type: url-test
+    <<: *group_common_auto
     filter: '(🇪🇺|也纳|克兰|比利时|尔兰|立陶宛|冰岛|秘鲁|耳其|利亚|埃及|希腊|斯洛伐克|芬兰|英国|德国|意大|法国|罗斯|瑞士|瑞典|荷兰|比亚|班牙|🇮🇹|🇫🇷|Ita|Fran|🇰🇿|Kaz|🇩🇪|Ger|🇬🇧|Kin|^UK|Brit|Tur|🇹🇷|🇵🇰|Paki|🇦🇺|Aus|🇨🇭|Swi|🇷🇺|Rus|Ukr|🇺🇦|Est|🇪🇪|Neth|🇳🇱|\bRU|\bFR|France|Paris|巴黎|CDG|^ES|🇪🇸|^IL|🇮🇱|^SE|🇸🇪|🇬🇷|i:\bGR[P]?\b)'
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 150
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Europe.png'
   - name: 'HK_Auto'
-    type: url-test
+    <<: *group_common_auto
     filter: '(?i:\bHK[G]?\b|HKBN|港|广港|香港|\bHK|Hong Kong|🇭🇰|HongKong|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)'
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 150
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
   - name: 'DMCA_Auto'
-    type: url-test
+    <<: *group_common_auto
     filter: '(Neth|🇳🇱|Lux|罗斯|🇷🇺|Rus|广新|新加坡|坡|狮城|🇸🇬|Singapore|Mala|马来|立陶宛|利亚|Bul|瑞典|荷兰|比亚|Kaz|Paki|Swi|Est|🇪🇪|\bRU\b|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|i:\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新|\bSIN|🇪🇸|i:\bES[P]?\b|i:\bDE[U]?\b|🇩🇪)'
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 150
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate.png'
 
-# --- Ordered rules from rulesets.toml; obsolete Home omitted ---
+# --- Ordered routing policy ---
 rules:
-  - RULE-SET,sensitive_personal_local_domains,Direct
-  - RULE-SET,rule_localareanetwork,Direct
-  - RULE-SET,sensitive_work_sus,Work_Sus
-  - RULE-SET,sensitive_work,Work
-  - RULE-SET,rule_msservices,Microsoft
-  - RULE-SET,rule_unbreak,Direct
+  # 私有网络直连
+  - RULE-SET,legacy_local_domains,Direct
+  - RULE-SET,legacy_localareanetwork,Direct
+  - RULE-SET,private,Direct
+
+  # 国内直连
+  - RULE-SET,legacy_unbreak,Direct
+  - RULE-SET,games_cn,Direct
+  - RULE-SET,epicgames,Direct
+  - RULE-SET,nvidia_cn,Direct
+  - RULE-SET,apple_cn,Direct
+  - RULE-SET,microsoft_cn,Direct
+  - RULE-SET,bm_bilibili,Direct
+  - RULE-SET,bm_iqiyi,Direct
+  - RULE-SET,bm_letv,Direct
+  - RULE-SET,acl_moo,Direct
+  - RULE-SET,acl_tencent_video,Direct
+  - RULE-SET,bm_youku,Direct
+  - RULE-SET,legacy_cn_media,Direct
+
+  # 广告拦截
   - RULE-SET,bm_advertisinglite,Ads
-  - RULE-SET,rule_netflix,Streaming_Media
-  - RULE-SET,rule_streaming_media_custom,Streaming_Media
+
+  # 代理规则
+  - RULE-SET,legacy_work_sus,Work_Sus
+  - RULE-SET,legacy_work,Work
+  - RULE-SET,legacy_msservices,Microsoft
+  - RULE-SET,bm_netflix,Streaming_Media
+  - RULE-SET,legacy_streaming_media,Streaming_Media
   - RULE-SET,bm_deezer,Streaming_Media
-  - RULE-SET,rule_netflix,Streaming_Media
   - RULE-SET,bm_disney,Streaming_Media
   - RULE-SET,bm_hbo,Streaming_Media
   - RULE-SET,bm_youtube,Streaming_Media
-  - RULE-SET,rule_ai,AI
+  - RULE-SET,legacy_ai,AI
   - RULE-SET,bm_openai,AI
   - RULE-SET,bm_claude,AI
   - RULE-SET,bm_gemini,AI
-  - RULE-SET,rule_social_media,Social_Media
+  - RULE-SET,legacy_social_media,Social_Media
   - RULE-SET,bm_tiktok,Social_Media
-  - RULE-SET,cn_games,CN_Service
-  - RULE-SET,cn_epicgames,CN_Service
-  - RULE-SET,cn_nvidia,CN_Service
-  - RULE-SET,cn_apple,CN_Service
-  - RULE-SET,cn_microsoft,CN_Service
-  - RULE-SET,rule_bilibili,CN_Service
-  - RULE-SET,rule_iqiyi,CN_Service
-  - RULE-SET,rule_letv,CN_Service
-  - RULE-SET,rule_moo,CN_Service
-  - RULE-SET,rule_tencent_video,CN_Service
-  - RULE-SET,rule_youku,CN_Service
-  - RULE-SET,rule_cn_media_custom,CN_Service
-  - RULE-SET,rule_telegram,Telegram
+  - RULE-SET,bm_telegram,Telegram
   - RULE-SET,legacy_telegram,Telegram
-  - RULE-SET,rule_singapore,TW_SG_Select
-  - RULE-SET,rule_jp_kr,JP_KR_Select
-  - RULE-SET,rule_im_services,IM_Service
-  - RULE-SET,sensitive_vps_play_ground,Play_Ground
-  - RULE-SET,rule_gaming,Gaming
-  - RULE-SET,rule_apple,Apple
-  - RULE-SET,rule_download,Torrent
-  - RULE-SET,rule_china,Direct
-  - RULE-SET,rule_chinacompanyip,Direct
-  - RULE-SET,rule_chinadomain,Direct
-  - RULE-SET,sensitive_chinaip_custom,Direct
-  - RULE-SET,rule_global,Proxy
+  - RULE-SET,legacy_singapore,TW_SG_Select
+  - RULE-SET,legacy_jp_kr,JP_KR_Select
+  - RULE-SET,legacy_im_services,IM_Service
+  - RULE-SET,legacy_vps_play_ground,Play_Ground
+  - RULE-SET,legacy_gaming,Gaming
+  - RULE-SET,bm_apple,Apple
+  - RULE-SET,legacy_download,Torrent
+
+  # 兜底规则
+  - RULE-SET,bm_global,Proxy
   - RULE-SET,legacy_global,Proxy
+  - RULE-SET,bm_china,Direct
+  - RULE-SET,acl_chinacompanyip,Direct
+  - RULE-SET,acl_chinadomain,Direct
+  - RULE-SET,legacy_chinaip,Direct
+  - RULE-SET,cn,Direct
   - GEOIP,CN,Direct,no-resolve
   - MATCH,Remaining
