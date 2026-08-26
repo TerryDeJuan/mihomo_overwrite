@@ -135,6 +135,82 @@ rule-providers:
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/direct.mrs'
     path: './ruleset/cn.mrs'
+  github:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs'
+    path: './ruleset/github.mrs'
+  docker:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/docker.mrs'
+    path: './ruleset/docker.mrs'
+  matrix:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/matrix.mrs'
+    path: './ruleset/matrix.mrs'
+  twitter:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitter.mrs'
+    path: './ruleset/twitter.mrs'
+  meta:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/meta.mrs'
+    path: './ruleset/meta.mrs'
+  discord:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/discord.mrs'
+    path: './ruleset/discord.mrs'
+  signal:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/signal.mrs'
+    path: './ruleset/signal.mrs'
+  line:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/line.mrs'
+    path: './ruleset/line.mrs'
+  bahamut:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.mrs'
+    path: './ruleset/bahamut.mrs'
+  dmm:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/dmm.mrs'
+    path: './ruleset/dmm.mrs'
+  steam:
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs'
+    path: './ruleset/steam.mrs'
+  steam_asn:
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/asn/AS32590.mrs'
+    path: './ruleset/steam_asn.mrs'
   games_cn:
     type: http
     behavior: domain
@@ -175,7 +251,7 @@ rule-providers:
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/sensitive/personal_local_domains.list'
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/local_domains.list'
     path: './ruleset/legacy_local_domains.list'
   legacy_localareanetwork:
     type: http
@@ -378,7 +454,7 @@ rule-providers:
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/sensitive/VPS_Play_Ground.list'
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/VPS_Play_Ground.list'
     path: './ruleset/legacy_vps_play_ground.list'
   legacy_gaming:
     type: http
@@ -392,14 +468,14 @@ rule-providers:
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/sensitive/Work_sus.list'
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/work_sus.list'
     path: './ruleset/legacy_work_sus.list'
   legacy_work:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/sensitive/Work.list'
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/work.list'
     path: './ruleset/legacy_work.list'
   bm_apple:
     type: http
@@ -415,6 +491,13 @@ rule-providers:
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Download.list'
     path: './ruleset/legacy_download.list'
+  home_block:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/Home_Block.list'
+    path: './ruleset/home_block.list'
   bm_china:
     type: http
     behavior: classical
@@ -436,13 +519,13 @@ rule-providers:
     interval: 86400
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list'
     path: './ruleset/acl_chinadomain.list'
-  legacy_chinaip:
+  legacy_personaldomains:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: 'https://rules.example.net/personal/custom/sensitive/ChinaIP_Custom.list'
-    path: './ruleset/legacy_chinaip.list'
+    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/personaldomains.list'
+    path: './ruleset/legacy_personaldomains.list'
   bm_global:
     type: http
     behavior: classical
@@ -496,7 +579,7 @@ group_filter:
   HK_filter: &HK_filter { filter: '(HKBN|港|广港|香港|\bHK|Hong Kong|🇭🇰|HongKong|i:\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)' }
   DMCA_filter: &DMCA_filter { filter: '(Neth|🇳🇱|Lux|罗斯|🇷🇺|Rus|广新|新加坡|坡|狮城|🇸🇬|Singapore|Mala|马来|立陶宛|利亚|Bul|瑞典|荷兰|比亚|Kaz|Paki|Swi|Est|🇪🇪|\bRU\b|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|i:\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新|\bSIN|🇪🇸|i:\bES[P]?\b|i:\bDE[U]?\b|🇩🇪)' }
 
-# --- Proxy groups from groups.toml; emoji prefixes removed; Global -> Proxy; CN_Media -> CN_Service ---
+# --- Proxy groups from groups.toml ---
 proxy-groups:
   - name: 'Proxy'
     <<: *group_common_select
@@ -574,7 +657,7 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Work.png'
   - name: 'Work_Sus'
     <<: *group_common_select
-    proxies: ['Block', 'Direct', 'Proxy', 'Telegram']
+    proxies: ['Block', 'Direct', 'Proxy', 'Work']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Null_Nation.png'
   - name: 'CN_Service'
     <<: *group_common_select
@@ -588,14 +671,14 @@ proxy-groups:
     <<: *group_common_select
     proxies: ['Block', 'Direct', 'Proxy']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
-  - name: 'Home'
+  - name: 'Home_Block'
     <<: *group_common_select
     proxies: ['Block', 'Direct']
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/House.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Reject.png'
   - name: 'Torrent'
     <<: *group_common_select
     proxies: ['DMCA_Select', 'DMCA_Auto', 'Proxy', 'Direct', 'Auto_All', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate_Nation.png'
   - name: 'Direct'
     <<: *group_common_select
     proxies: ['DIRECT']
@@ -627,36 +710,44 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
   - name: 'DMCA_Auto'
     <<: [*group_common_auto, *DMCA_filter]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate_Nation.png'
 
 # --- Ordered routing policy ---
 rules:
   # Private network direct routing
   - RULE-SET,legacy_local_domains,Direct
   - RULE-SET,legacy_localareanetwork,Direct
+  - RULE-SET,legacy_personaldomains,Direct
   - RULE-SET,private,Direct
+
+  # Custom Priority
+  - RULE-SET,home_block,Home_Block
+  - RULE-SET,legacy_work_sus,Work_Sus
+  - RULE-SET,legacy_work,Work
+  - RULE-SET,legacy_vps_play_ground,Play_Ground
 
   # Domestic direct routing
   - RULE-SET,legacy_unbreak,Direct
-  - RULE-SET,games_cn,Direct
-  - RULE-SET,epicgames,Direct
-  - RULE-SET,nvidia_cn,Direct
-  - RULE-SET,apple_cn,Direct
-  - RULE-SET,microsoft_cn,Direct
-  - RULE-SET,bm_bilibili,Direct
-  - RULE-SET,bm_iqiyi,Direct
-  - RULE-SET,bm_letv,Direct
-  - RULE-SET,acl_moo,Direct
-  - RULE-SET,acl_tencent_video,Direct
-  - RULE-SET,bm_youku,Direct
-  - RULE-SET,legacy_cn_media,Direct
+  - RULE-SET,games_cn,CN_Service
+  - RULE-SET,epicgames,CN_Service
+  - RULE-SET,nvidia_cn,CN_Service
+  - RULE-SET,apple_cn,CN_Service
+  - RULE-SET,microsoft_cn,CN_Service
+  - RULE-SET,bm_bilibili,CN_Service
+  - RULE-SET,bm_iqiyi,CN_Service
+  - RULE-SET,bm_letv,CN_Service
+  - RULE-SET,acl_moo,CN_Service
+  - RULE-SET,acl_tencent_video,CN_Service
+  - RULE-SET,bm_youku,CN_Service
+  - RULE-SET,legacy_cn_media,CN_Service
 
   # Advertising blocking
   - RULE-SET,bm_advertisinglite,Ads
 
   # Proxy routing
-  - RULE-SET,legacy_work_sus,Work_Sus
-  - RULE-SET,legacy_work,Work
+  - RULE-SET,github,Proxy
+  - RULE-SET,docker,Proxy
+  - RULE-SET,matrix,IM_Service
   - RULE-SET,legacy_msservices,Microsoft
   - RULE-SET,bm_netflix,Streaming_Media
   - RULE-SET,legacy_streaming_media,Streaming_Media
@@ -668,15 +759,23 @@ rules:
   - RULE-SET,bm_openai,AI
   - RULE-SET,bm_claude,AI
   - RULE-SET,bm_gemini,AI
+  - RULE-SET,twitter,Social_Media
+  - RULE-SET,meta,Social_Media
   - RULE-SET,legacy_social_media,Social_Media
   - RULE-SET,bm_tiktok,Social_Media
   - RULE-SET,bm_telegram,Telegram
   - RULE-SET,legacy_telegram,Telegram
   - RULE-SET,legacy_singapore,TW_SG_Select
+  - RULE-SET,bahamut,TW_SG_Select
+  - RULE-SET,dmm,JP_KR_Select
   - RULE-SET,legacy_jp_kr,JP_KR_Select
+  - RULE-SET,discord,IM_Service
+  - RULE-SET,signal,IM_Service
+  - RULE-SET,line,IM_Service
   - RULE-SET,legacy_im_services,IM_Service
-  - RULE-SET,legacy_vps_play_ground,Play_Ground
   - RULE-SET,legacy_gaming,Gaming
+  - RULE-SET,steam,Gaming
+  - RULE-SET,steam_asn,Gaming
   - RULE-SET,bm_apple,Apple
   - RULE-SET,legacy_download,Torrent
 
@@ -686,7 +785,6 @@ rules:
   - RULE-SET,bm_china,Direct
   - RULE-SET,acl_chinacompanyip,Direct
   - RULE-SET,acl_chinadomain,Direct
-  - RULE-SET,legacy_chinaip,Direct
   - RULE-SET,cn,Direct
   - GEOIP,CN,Direct,no-resolve
   - MATCH,Remaining

@@ -1,0 +1,4 @@
+# Placeholder for Home_Block.list
+
+# The divces address you want to block
+# SRC-IP-CIDR,10.42.0.69/32
