@@ -1,6 +1,9 @@
 # Exclude environment files with secrets
 .env
 
+# Exclude Python venv
+.venv/
+
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
@@ -18,7 +21,6 @@ Thumbs.db
 personal/*
 !personal/README.md
 !personal/example_rules.list
-
 
 # Skip sftp files
 sftp-config.json

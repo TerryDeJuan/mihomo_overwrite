@@ -4,6 +4,8 @@ import re
 from pathlib import Path
 from typing import Tuple
 
+import yaml
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -11,6 +13,9 @@ def validate_primary_config(path: Path) -> Tuple[int, int, int]:
     """Check the primary Mihomo YAML relationships without third-party modules."""
     text = path.read_text(encoding="utf-8-sig")
     assert not re.search(r"(?m)^\s+url:\s+https?://", text), "quote all HTTP URLs"
+    parsed = yaml.safe_load(text)
+    assert "proxy-providers" not in parsed, "subscription providers belong to Sub-Store"
+    assert "global_exclude_filter" not in parsed
 
     provider_section, remainder = text.split("\nproxy-groups:\n", 1)
     group_section, rule_section = remainder.split("\nrules:\n", 1)

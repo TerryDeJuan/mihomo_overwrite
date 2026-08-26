@@ -345,13 +345,13 @@ rule-providers:
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list'
     path: './ruleset/rule_telegram.list'
-  rule_telegram_2:
+  legacy_telegram:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Telegram.list'
-    path: './ruleset/rule_telegram_2.list'
+    path: './ruleset/legacy_telegram.list'
   rule_singapore:
     type: http
     behavior: classical
@@ -450,13 +450,13 @@ rule-providers:
     interval: 86400
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list'
     path: './ruleset/rule_global.list'
-  rule_global_2:
+  legacy_global:
     type: http
     behavior: classical
     format: text
     interval: 86400
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Global.list'
-    path: './ruleset/rule_global_2.list'
+    path: './ruleset/legacy_global.list'
 
 # --- Proxy groups from groups.toml; emoji prefixes removed; Global -> Proxy; CN_Media -> CN_Service ---
 proxy-groups:
@@ -484,11 +484,11 @@ proxy-groups:
   - name: 'Social_Media'
     type: select
     proxies: ['TW_SG_Select', 'Proxy', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'EU_Select', 'HK_Select', 'Direct', 'Block']
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Weibo.png'
+    icon: 'https://fastly.jsdelivr.net/gh/NX211/homer-icons@master/png/mastodon.png'
   - name: 'IM_Service'
     type: select
     proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Proxy', 'US_Auto', 'US_Select', 'TW_SG_Select', 'TW_SG_Auto', 'HK_Auto', 'HK_Select', 'Auto_All', 'EU_Auto', 'EU_Select', 'Direct', 'Block']
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
+    icon: 'https://fastly.jsdelivr.net/gh/NX211/homer-icons@master/png/signal.png'
   - name: 'Gaming'
     type: select
     proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Direct', 'US_Auto', 'US_Select', 'Proxy', 'Auto_All', 'TW_SG_Auto', 'HK_Auto', 'TW_SG_Select', 'HK_Select', 'Block']
@@ -501,7 +501,7 @@ proxy-groups:
     type: select
     proxies: ['Proxy', 'Direct', 'Block']
     include-all: true
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Static.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png'
   - name: 'US_Select'
     type: select
     filter: '(?i:\bUS[A]?\b|广美|美|\bUS|纽约|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|🇨🇦|\bCA|Canada|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|🇺🇸|United States|UnitedStates|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\bLAS|\bSEA|\bLAX|\bSJC|\bSFO|\bMIA|\bBOS|\bDFW|Default|\bSLC)'
@@ -529,7 +529,7 @@ proxy-groups:
   - name: 'DMCA_Select'
     type: select
     filter: '(Neth|🇳🇱|Lux|罗斯|🇷🇺|Rus|广新|新加坡|坡|狮城|🇸🇬|Singapore|Mala|马来|立陶宛|利亚|Bul|瑞典|荷兰|比亚|Kaz|Paki|Swi|Est|🇪🇪|\bRU\b|新加坡|\bSG|坡|狮城|🇸🇬|Singapore|i:\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新|\bSIN|🇪🇸|i:\bES[P]?\b|i:\bDE[U]?\b|🇩🇪)'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate_Nation.png'
   - name: 'Work'
     type: select
     proxies: ['Telegram', 'Direct', 'Block', 'Proxy']
@@ -537,7 +537,7 @@ proxy-groups:
   - name: 'Work_Sus'
     type: select
     proxies: ['Block', 'Direct', 'Proxy', 'Telegram']
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Work.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Null_Nation.png'
   - name: 'CN_Service'
     type: select
     proxies: ['Direct', 'Block', 'HK_Auto', 'HK_Select']
@@ -627,6 +627,8 @@ proxy-groups:
 rules:
   - RULE-SET,sensitive_personal_local_domains,Direct
   - RULE-SET,rule_localareanetwork,Direct
+  - RULE-SET,sensitive_work_sus,Work_Sus
+  - RULE-SET,sensitive_work,Work
   - RULE-SET,rule_msservices,Microsoft
   - RULE-SET,rule_unbreak,Direct
   - RULE-SET,bm_advertisinglite,Ads
@@ -656,15 +658,12 @@ rules:
   - RULE-SET,rule_youku,CN_Service
   - RULE-SET,rule_cn_media_custom,CN_Service
   - RULE-SET,rule_telegram,Telegram
-  - RULE-SET,rule_telegram_2,Telegram
-  - RULE-SET,rule_telegram,Telegram
+  - RULE-SET,legacy_telegram,Telegram
   - RULE-SET,rule_singapore,TW_SG_Select
   - RULE-SET,rule_jp_kr,JP_KR_Select
   - RULE-SET,rule_im_services,IM_Service
   - RULE-SET,sensitive_vps_play_ground,Play_Ground
   - RULE-SET,rule_gaming,Gaming
-  - RULE-SET,sensitive_work_sus,Work_Sus
-  - RULE-SET,sensitive_work,Work
   - RULE-SET,rule_apple,Apple
   - RULE-SET,rule_download,Torrent
   - RULE-SET,rule_china,Direct
@@ -672,6 +671,6 @@ rules:
   - RULE-SET,rule_chinadomain,Direct
   - RULE-SET,sensitive_chinaip_custom,Direct
   - RULE-SET,rule_global,Proxy
-  - RULE-SET,rule_global_2,Proxy
+  - RULE-SET,legacy_global,Proxy
   - GEOIP,CN,Direct,no-resolve
   - MATCH,Remaining
