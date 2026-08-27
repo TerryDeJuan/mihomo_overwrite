@@ -113,439 +113,296 @@ proxy_providers_common:
 # --- Rule sets ---
 
 # --- Unified rule providers ---
-rule-providers:
-  private:
+rule_providers_common:
+  rule_providers_domain: &rule_providers_domain
     type: http
-    behavior: domain
     format: mrs
     interval: 86400
+    behavior: domain
+  rule_providers_ip: &rule_providers_ip
+    type: http
+    format: mrs
+    interval: 86400
+    behavior: ipcidr
+  rule_providers_classical: &rule_providers_classical
+    type: http
+    format: text
+    interval: 86400
+    behavior: classical
+
+rule-providers:
+  # --- Direct Rules ---
+  private:
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs'
     path: './ruleset/private.mrs'
+    path-in-bundle: 'geo/geosite/private.mrs'
   fakeip_filter:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/fakeip-filter.mrs'
     path: './ruleset/fakeip_filter.mrs'
   cn:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/direct.mrs'
     path: './ruleset/cn.mrs'
+  # --- Proxy Rules ---
   github:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs'
     path: './ruleset/github.mrs'
+    path-in-bundle: 'geo/geosite/github.mrs'
   docker:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/docker.mrs'
     path: './ruleset/docker.mrs'
+    path-in-bundle: 'geo/geosite/docker.mrs'
   matrix:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/matrix.mrs'
     path: './ruleset/matrix.mrs'
+    path-in-bundle: 'geo/geosite/matrix.mrs'
   twitter:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitter.mrs'
     path: './ruleset/twitter.mrs'
+    path-in-bundle: 'geo/geosite/twitter.mrs'
   meta:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/meta.mrs'
     path: './ruleset/meta.mrs'
+    path-in-bundle: 'geo/geosite/meta.mrs'
   discord:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/discord.mrs'
     path: './ruleset/discord.mrs'
+    path-in-bundle: 'geo/geosite/discord.mrs'
   signal:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/signal.mrs'
     path: './ruleset/signal.mrs'
+    path-in-bundle: 'geo/geosite/signal.mrs'
   line:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/line.mrs'
     path: './ruleset/line.mrs'
+    path-in-bundle: 'geo/geosite/line.mrs'
   bahamut:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.mrs'
     path: './ruleset/bahamut.mrs'
+    path-in-bundle: 'geo/geosite/bahamut.mrs'
   dmm:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/dmm.mrs'
     path: './ruleset/dmm.mrs'
+    path-in-bundle: 'geo/geosite/dmm.mrs'
   steam:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs'
     path: './ruleset/steam.mrs'
+    path-in-bundle: 'geo/geosite/steam.mrs'
   steam_asn:
     type: http
-    behavior: domain
+    behavior: ipcidr
     format: mrs
     interval: 86400
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/asn/AS32590.mrs'
     path: './ruleset/steam_asn.mrs'
+    path-in-bundle: 'asn/AS32590.mrs'
   games_cn:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs'
-    path: './ruleset/games_cn.mrs'
+    path: './ruleset/category-games@cn.mrs'
+    path-in-bundle: 'geo/geosite/category-games@cn.mrs'
   epicgames:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/epicgames.mrs'
     path: './ruleset/epicgames.mrs'
+    path-in-bundle: 'geo/geosite/epicgames.mrs'
   nvidia_cn:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nvidia@cn.mrs'
-    path: './ruleset/nvidia_cn.mrs'
+    <<: *rule_providers_domain
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nvidia.mrs'
+    path: './ruleset/nvidia.mrs'
+    path-in-bundle: 'geo/geosite/nvidia.mrs'
   apple_cn:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple@cn.mrs'
-    path: './ruleset/apple_cn.mrs'
+    <<: *rule_providers_domain
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs'
+    path: './ruleset/apple.mrs'
+    path-in-bundle: 'geo/geosite/apple.mrs'
   microsoft_cn:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs'
-    path: './ruleset/microsoft_cn.mrs'
+    <<: *rule_providers_domain
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs'
+    path: './ruleset/microsoft.mrs'
+    path-in-bundle: 'geo/geosite/microsoft.mrs'
+  # --- Custom Rules ---
   legacy_local_domains:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/local_domains.list'
     path: './ruleset/legacy_local_domains.list'
   legacy_localareanetwork:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/LocalAreaNetwork.list'
     path: './ruleset/legacy_localareanetwork.list'
   legacy_msservices:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/MSServices.list'
     path: './ruleset/legacy_msservices.list'
   legacy_unbreak:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/DivineEngine/Surge/Ruleset/Unbreak.list'
     path: './ruleset/legacy_unbreak.list'
+  # --- Proxy Rules ---
   bm_advertisinglite:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.list'
     path: './ruleset/bm_advertisinglite.list'
   bm_netflix:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list'
     path: './ruleset/bm_netflix.list'
   legacy_streaming_media:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Streaming_Media_Custom.list'
     path: './ruleset/legacy_streaming_media.list'
   bm_deezer:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Deezer/Deezer.list'
     path: './ruleset/bm_deezer.list'
   bm_disney:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.list'
     path: './ruleset/bm_disney.list'
   bm_hbo:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBO/HBO.list'
     path: './ruleset/bm_hbo.list'
   bm_youtube:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list'
     path: './ruleset/bm_youtube.list'
   legacy_ai:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/AI.list'
     path: './ruleset/legacy_ai.list'
   bm_openai:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list'
     path: './ruleset/bm_openai.list'
   bm_claude:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list'
     path: './ruleset/bm_claude.list'
   bm_gemini:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list'
     path: './ruleset/bm_gemini.list'
   legacy_social_media:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Social_Media.list'
     path: './ruleset/legacy_social_media.list'
   bm_tiktok:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list'
     path: './ruleset/bm_tiktok.list'
   bm_bilibili:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.list'
     path: './ruleset/bm_bilibili.list'
   bm_iqiyi:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/iQIYI/iQIYI.list'
     path: './ruleset/bm_iqiyi.list'
   bm_letv:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/LeTV/LeTV.list'
     path: './ruleset/bm_letv.list'
   acl_moo:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MOO.list'
     path: './ruleset/acl_moo.list'
   acl_tencent_video:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TencentVideo.list'
     path: './ruleset/acl_tencent_video.list'
   bm_youku:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Youku/Youku.list'
     path: './ruleset/bm_youku.list'
   legacy_cn_media:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/CN_Media_Custom.list'
     path: './ruleset/legacy_cn_media.list'
   bm_telegram:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list'
     path: './ruleset/bm_telegram.list'
   legacy_telegram:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Telegram.list'
     path: './ruleset/legacy_telegram.list'
   legacy_singapore:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Singapore.list'
     path: './ruleset/legacy_singapore.list'
   legacy_jp_kr:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/JP_KR.list'
     path: './ruleset/legacy_jp_kr.list'
   legacy_im_services:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/IM_Services.list'
     path: './ruleset/legacy_im_services.list'
   legacy_vps_play_ground:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/VPS_Play_Ground.list'
     path: './ruleset/legacy_vps_play_ground.list'
   legacy_gaming:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Gaming.list'
     path: './ruleset/legacy_gaming.list'
   legacy_work_sus:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/work_sus.list'
     path: './ruleset/legacy_work_sus.list'
   legacy_work:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/work.list'
     path: './ruleset/legacy_work.list'
   bm_apple:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list'
     path: './ruleset/bm_apple.list'
   legacy_download:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Download.list'
     path: './ruleset/legacy_download.list'
   home_block:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/Home_Block.list'
     path: './ruleset/home_block.list'
+  # --- Other ---
   bm_china:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list'
     path: './ruleset/bm_china.list'
   acl_chinacompanyip:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list'
     path: './ruleset/acl_chinacompanyip.list'
   acl_chinadomain:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list'
     path: './ruleset/acl_chinadomain.list'
   legacy_personaldomains:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/personaldomains.list'
     path: './ruleset/legacy_personaldomains.list'
   bm_global:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list'
     path: './ruleset/bm_global.list'
   legacy_global:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
+    <<: *rule_providers_classical
     url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Global.list'
     path: './ruleset/legacy_global.list'
 

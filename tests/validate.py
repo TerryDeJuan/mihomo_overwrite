@@ -39,6 +39,27 @@ def validate_primary_config(path: Path) -> Tuple[int, int, int]:
     assert auto_common["type"] == "url-test"
     assert auto_common["include-all"] is True
     assert auto_common["exclude-type"] == "DIRECT"
+    assert set(parsed["rule_providers_common"]) == {
+        "rule_providers_domain",
+        "rule_providers_ip",
+        "rule_providers_classical",
+    }
+    for name, provider in parsed["rule-providers"].items():
+        assert {"type", "behavior", "format", "interval", "url", "path"} <= set(provider), (
+            f"incomplete rule provider metadata: {name}"
+        )
+        if provider["format"] == "mrs":
+            assert provider["type"] == "http"
+            assert provider["behavior"] in {"domain", "ipcidr"}
+        else:
+            assert provider["format"] == "text"
+            assert provider["behavior"] == "classical"
+    for name in (
+        "private", "github", "docker", "matrix", "twitter", "meta", "discord",
+        "signal", "line", "bahamut", "dmm", "steam", "steam_asn", "games_cn",
+        "epicgames", "nvidia_cn", "apple_cn", "microsoft_cn",
+    ):
+        assert "path-in-bundle" in parsed["rule-providers"][name]
     expected_filters = {
         "US": "US_filter",
         "JP_KR": "JP_KR_filter",
