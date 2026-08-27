@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144" role="img" aria-labelledby="title desc">
+  <title id="title">Five-Colored Flag</title>
+  <desc id="desc">A softly shaded, rounded five-colored flag of the Republic of China.</desc>
+  <defs>
+    <clipPath id="flag-mask"><rect width="144" height="123" rx="20"/></clipPath>
+    <linearGradient id="white-sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.24"/>
+      <stop offset="0.42" stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#flag-mask)">
+    <rect y="0.00" width="144" height="24.60" fill="#FE0000"/>
+    <rect y="24.60" width="144" height="24.60" fill="#FFC000"/>
+    <rect y="49.20" width="144" height="24.60" fill="#0070C0"/>
+    <rect y="73.80" width="144" height="24.60" fill="#FFFFFF"/>
+    <rect y="98.40" width="144" height="24.60" fill="#000000"/>
+    <rect width="144" height="70" fill="url(#white-sheen)"/>
+  </g>
+  <!-- Flat-palette reference stripes: #FE0000, #FFC000, #0070C0, #FFFFFF, #000000 -->
+</svg>
