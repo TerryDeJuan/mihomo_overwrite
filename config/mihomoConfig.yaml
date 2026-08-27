@@ -445,7 +445,7 @@ group_filter:
 proxy-groups:
   - name: 'Proxy'
     <<: *group_common_select
-    proxies: ['US_Auto', 'US_Select', 'Auto_All', 'Media_Auto', 'Media_Select', 'Direct', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'DMCA_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'DMCA_Select', 'Block']
+    proxies: ['US_Select', 'US_Auto', 'Auto_All', 'Media_Auto', 'Media_Select', 'Direct', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'DMCA_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'DMCA_Select', 'Block']
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png'
   - name: 'Streaming_Media'
