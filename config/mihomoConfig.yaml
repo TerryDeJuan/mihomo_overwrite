@@ -1,11 +1,11 @@
 # --- common ---
-proxy_providers_common:
-  &proxy_providers_common {
-    type: http,
-    interval: 86400,
-    proxy: DIRECT,
-    health-check: { enable: true, url: 'https://g.cn/generate_204', interval: 600, lazy: true },
-  }
+# proxy_providers_common:
+#   &proxy_providers_common {
+#     type: http,
+#     interval: 86400,
+#     proxy: DIRECT,
+#     health-check: { enable: true, url: 'https://g.cn/generate_204', interval: 600, lazy: true },
+#   }
 
 # Global node exclusion filter
 # global_exclude_filter:
