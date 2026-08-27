@@ -504,7 +504,7 @@ proxy-groups:
   - name: 'EU_Select'
     <<: [*group_common_select, *EU_filter]
     include-all: true
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Europe.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png'
   - name: 'HK_Select'
     <<: [*group_common_select, *HK_filter]
     include-all: true
@@ -516,7 +516,7 @@ proxy-groups:
   - name: 'Work'
     <<: *group_common_select
     proxies: ['Telegram', 'Direct', 'Block', 'Proxy']
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Work.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Drill.png'
   - name: 'Work_Sus'
     <<: *group_common_select
     proxies: ['Block', 'Direct', 'Proxy', 'Work']
@@ -566,7 +566,7 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
   - name: 'EU_Auto'
     <<: [*group_common_auto, *EU_filter]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Europe.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png'
   - name: 'HK_Auto'
     <<: [*group_common_auto, *HK_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
