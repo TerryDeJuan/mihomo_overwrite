@@ -1,5 +1,5 @@
 function main(config) {
-  // English comment
+  // Ensure the DNS-leak prevention provider is available before adding its rule.
   if (!config['rule-providers']) {
     config['rule-providers'] = {};
   }
@@ -12,7 +12,7 @@ function main(config) {
   };
   config['rule-providers']['prevent_dns_leak'] = newProvider;
 
-  // English comment
+  // Route the prevention rule to the same fallback group used by MATCH.
   const matchRule = config.rules.find(rule => rule.startsWith("MATCH"));
   const name = matchRule ? matchRule.split(",").pop() : null;
   const newRule = `RULE-SET,prevent_dns_leak,${name}`;
@@ -20,7 +20,7 @@ function main(config) {
     config.rules.unshift(newRule);
   }
 
-  // English comment
+  // Keep fake-IP mode enabled, as the prevention rules rely on it.
   if (!config.dns) {
     config.dns = {};
   }
