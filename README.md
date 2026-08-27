@@ -23,6 +23,18 @@ tests/                     Fixtures and validation tests
 docs/                      Design notes and usage documentation
 ```
 
+## Config raw file
+
+```text
+https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/refs/heads/main/config/mihomoConfig.yaml
+```
+
+## Script raw file
+
+```text
+https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/refs/heads/main/scripts/personal-mihomo.js
+```
+
 ## Development principles
 
 1. Keep upstream code in `baselines/`; do not edit submodules in place.

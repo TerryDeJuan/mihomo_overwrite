@@ -34,9 +34,9 @@
 
 # Node definitions; custom nodes may be added here.
 # proxies:
-#   - { name: '🇨🇳 直连 | IPv4优先', type: direct, ip-version: ipv4-prefer }
-#   - { name: '🇨🇳 直连 | IPv6优先', type: direct, ip-version: ipv6-prefer }
-#   - { name: '🇨🇳 直连 | 双栈', type: direct }
+#   - { name: 'Provider1 | IPv4', type: direct, ip-version: ipv4-prefer }
+#   - { name: 'Provider1 | IPv6', type: direct, ip-version: ipv6-prefer }
+#   - { name: 'Provider1 | IPv4nIPv6', type: direct }
 
 # --- Basic global configuration ---
 
@@ -61,7 +61,7 @@
 
 # Domestic and foreign DNS definitions
 # chinaDNS: &chinaDNS ['https://dns.alidns.com/dns-query#DIRECT', 'https://doh.pub/dns-query#DIRECT']
-# foreignDNS: &foreignDNS ['https://dns.cloudflare.com/dns-query#默认代理', 'https://dns.google/dns-query#默认代理']
+# foreignDNS: &foreignDNS ['https://dns.cloudflare.com/dns-query#Proxy', 'https://dns.google/dns-query#Proxy']
 
 # dns:
 #   enable: true
@@ -234,173 +234,173 @@ rule-providers:
   # --- Custom Rules ---
   legacy_local_domains:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/local_domains.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/local_domains.list'
     path: './ruleset/legacy_local_domains.list'
   legacy_localareanetwork:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/LocalAreaNetwork.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/LocalAreaNetwork.list'
     path: './ruleset/legacy_localareanetwork.list'
   legacy_msservices:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/MSServices.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/MSServices.list'
     path: './ruleset/legacy_msservices.list'
   legacy_unbreak:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/DivineEngine/Surge/Ruleset/Unbreak.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/DivineEngine/Surge/Ruleset/Unbreak.list'
     path: './ruleset/legacy_unbreak.list'
   # --- Proxy Rules ---
   bm_advertisinglite:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite.list'
     path: './ruleset/bm_advertisinglite.list'
   bm_netflix:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.list'
     path: './ruleset/bm_netflix.list'
   legacy_streaming_media:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Streaming_Media_Custom.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/Streaming_Media_Custom.list'
     path: './ruleset/legacy_streaming_media.list'
   bm_deezer:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Deezer/Deezer.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Deezer/Deezer.list'
     path: './ruleset/bm_deezer.list'
   bm_disney:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.list'
     path: './ruleset/bm_disney.list'
   bm_hbo:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBO/HBO.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/HBO/HBO.list'
     path: './ruleset/bm_hbo.list'
   bm_youtube:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list'
     path: './ruleset/bm_youtube.list'
   legacy_ai:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/AI.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/AI.list'
     path: './ruleset/legacy_ai.list'
   bm_openai:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.list'
     path: './ruleset/bm_openai.list'
   bm_claude:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.list'
     path: './ruleset/bm_claude.list'
   bm_gemini:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list'
     path: './ruleset/bm_gemini.list'
   legacy_social_media:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Social_Media.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/Social_Media.list'
     path: './ruleset/legacy_social_media.list'
   bm_tiktok:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list'
     path: './ruleset/bm_tiktok.list'
   bm_bilibili:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.list'
     path: './ruleset/bm_bilibili.list'
   bm_iqiyi:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/iQIYI/iQIYI.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/iQIYI/iQIYI.list'
     path: './ruleset/bm_iqiyi.list'
   bm_letv:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/LeTV/LeTV.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/LeTV/LeTV.list'
     path: './ruleset/bm_letv.list'
   acl_moo:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MOO.list'
+    url: 'https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/MOO.list'
     path: './ruleset/acl_moo.list'
   acl_tencent_video:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TencentVideo.list'
+    url: 'https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/TencentVideo.list'
     path: './ruleset/acl_tencent_video.list'
   bm_youku:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Youku/Youku.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Youku/Youku.list'
     path: './ruleset/bm_youku.list'
   legacy_cn_media:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/CN_Media_Custom.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/CN_Media_Custom.list'
     path: './ruleset/legacy_cn_media.list'
   bm_telegram:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list'
     path: './ruleset/bm_telegram.list'
   legacy_telegram:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Telegram.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/Telegram.list'
     path: './ruleset/legacy_telegram.list'
   legacy_singapore:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Singapore.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/Singapore.list'
     path: './ruleset/legacy_singapore.list'
   legacy_jp_kr:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/JP_KR.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/JP_KR.list'
     path: './ruleset/legacy_jp_kr.list'
   legacy_im_services:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/IM_Services.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/IM_Services.list'
     path: './ruleset/legacy_im_services.list'
   legacy_vps_play_ground:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/VPS_Play_Ground.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/VPS_Play_Ground.list'
     path: './ruleset/legacy_vps_play_ground.list'
   legacy_gaming:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Gaming.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/Gaming.list'
     path: './ruleset/legacy_gaming.list'
   legacy_work_sus:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/work_sus.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/work_sus.list'
     path: './ruleset/legacy_work_sus.list'
   legacy_work:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/work.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/work.list'
     path: './ruleset/legacy_work.list'
   bm_apple:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list'
     path: './ruleset/bm_apple.list'
   legacy_download:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Download.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/Download.list'
     path: './ruleset/legacy_download.list'
   home_block:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/Home_Block.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/Home_Block.list'
     path: './ruleset/home_block.list'
   # --- Other ---
   bm_china:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.list'
     path: './ruleset/bm_china.list'
   acl_chinacompanyip:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list'
+    url: 'https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list'
     path: './ruleset/acl_chinacompanyip.list'
   acl_chinadomain:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list'
+    url: 'https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list'
     path: './ruleset/acl_chinadomain.list'
   legacy_personaldomains:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/personaldomains.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/personaldomains.list'
     path: './ruleset/legacy_personaldomains.list'
   bm_global:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global.list'
     path: './ruleset/bm_global.list'
   legacy_global:
     <<: *rule_providers_classical
-    url: 'https://raw.githubusercontent.com/TerryDeJuan/mihomo_overwrite/main/rules/legacy/custom/Global.list'
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/Global.list'
     path: './ruleset/legacy_global.list'
 
 # --- Proxy group common configuration ---
@@ -524,7 +524,7 @@ proxy-groups:
   - name: 'CN_Service'
     <<: *group_common_select
     proxies: ['Direct', 'Block', 'HK_Auto', 'HK_Select']
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png'
+    icon: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/assets/icons/five_color_flag.svg'
   - name: 'Apple'
     <<: *group_common_select
     proxies: ['Proxy', 'Direct', 'Auto_All', 'US_Auto', 'HK_Auto', 'US_Select', 'HK_Select']
