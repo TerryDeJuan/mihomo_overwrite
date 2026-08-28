@@ -549,7 +549,7 @@ proxy-groups:
   - name: 'Direct'
     <<: *group_common_select
     proxies: ['DIRECT']
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China_Map.png'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png'
   - name: 'Block'
     <<: *group_common_select
     proxies: ['REJECT', 'DIRECT']
