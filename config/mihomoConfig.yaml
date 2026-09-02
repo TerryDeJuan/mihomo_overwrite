@@ -223,6 +223,11 @@ rule-providers:
     path-in-bundle: 'geo/geosite/nvidia.mrs'
   apple_cn:
     <<: *rule_providers_domain
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple@cn.mrs'
+    path: './ruleset/apple@cn.mrs'
+    path-in-bundle: 'geo/geosite/apple@cn.mrs'
+  apple:
+    <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs'
     path: './ruleset/apple.mrs'
     path-in-bundle: 'geo/geosite/apple.mrs'
@@ -644,6 +649,7 @@ rules:
   - RULE-SET,legacy_gaming,Gaming
   - RULE-SET,steam,Gaming
   - RULE-SET,steam_asn,Gaming
+  - RULE-SET,apple,Apple
   - RULE-SET,bm_apple,Apple
   - RULE-SET,legacy_download,Torrent
 
