@@ -648,7 +648,7 @@ rules:
   - RULE-SET,legacy_im_services,IM_Service
   - RULE-SET,legacy_gaming,Gaming
   - RULE-SET,steam,Gaming
-  - RULE-SET,steam_asn,Gaming
+  - RULE-SET,steam_asn,Gaming,no-resolve
   - RULE-SET,apple,Apple
   - RULE-SET,bm_apple,Apple
   - RULE-SET,legacy_download,Torrent
