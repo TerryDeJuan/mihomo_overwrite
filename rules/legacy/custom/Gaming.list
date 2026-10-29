@@ -36,7 +36,7 @@ DOMAIN,login.live.com
 DOMAIN,logincdn.msauth.net
 DOMAIN,www.xboxab.com
 # > Enshrouded
-IP-CIDR,74.91.112.85/32
+IP-CIDR,74.91.112.85/32,no-resolve
 # > Path of Exile
 DOMAIN-SUFFIX,poecdn.com
 DOMAIN-SUFFIX,pathofexile2.com
