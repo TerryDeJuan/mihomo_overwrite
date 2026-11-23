@@ -609,11 +609,11 @@ rules:
 
   # Custom Priority
   - RULE-SET,home_block,Home_Block
+  - RULE-SET,custom_ads,Home_Block
+  - RULE-SET,custom_block,Home_Block
   - RULE-SET,legacy_work_sus,Work_Sus
   - RULE-SET,legacy_work,Work
   - RULE-SET,legacy_vps_play_ground,Play_Ground
-  - RULE-SET,custom_ads,Home_Block
-  - RULE-SET,custom_block,Home_Block
 
   # Domestic direct routing
   - RULE-SET,legacy_unbreak,Direct
