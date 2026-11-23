@@ -498,7 +498,7 @@ proxy-groups:
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate_Nation.png'
   - name: 'CFW_Select'
-    <<: [*group_common_Select, *CFW_filter]
+    <<: [*group_common_select, *CFW_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png'
   - name: 'Streaming_Media'
     <<: *group_common_select
