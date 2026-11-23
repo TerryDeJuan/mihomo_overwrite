@@ -412,6 +412,14 @@ rule-providers:
     <<: *rule_providers_classical
     url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/Global.list'
     path: './ruleset/legacy_global.list'
+  custom_ads:
+    <<: *rule_providers_classical
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/custom_ads.list'
+    path: './ruleset/custom_ads.list'
+  custom_block:
+    <<: *rule_providers_classical
+    url: 'https://fastly.jsdelivr.net/gh/TerryDeJuan/mihomo_overwrite@main/rules/legacy/custom/custom_block.list'
+    path: './ruleset/custom_block.list'
 
 # --- Proxy group common configuration ---
 # Load balancing is intentionally omitted; this config uses select and url-test groups only.
@@ -450,12 +458,13 @@ group_filter:
   EU_filter: &EU_filter { filter: '(🇪🇺|也纳|克兰|比利时|尔兰|立陶宛|冰岛|秘鲁|耳其|利亚|埃及|希腊|斯洛伐克|芬兰|英国|德国|意大|法国|罗斯|瑞士|瑞典|荷兰|比亚|班牙|🇮🇹|🇫🇷|Ita|Fran|🇰🇿|Kaz|🇩🇪|Ger|🇬🇧|Kin|^UK|Brit|Tur|🇹🇷|🇵🇰|Paki|🇦🇺|Aus|🇨🇭|Swi|🇷🇺|Rus|Ukr|🇺🇦|Est|🇪🇪|Neth|🇳🇱|\bRU|\bFR|France|Paris|🇲🇦|巴黎|CDG|^ES|🇪🇸|^IL|🇮🇱|^SE|🇸🇪|🇬🇷|i:\bGR[P]?\b)' }
   HK_filter: &HK_filter { filter: '(HKBN|港|广港|香港|\bHK|Hong Kong|🇭🇰|HongKong|i:\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)' }
   DMCA_filter: &DMCA_filter { filter: '(Neth|🇳🇱|Lux|罗斯|🇷🇺|Rus|广新|新加坡|坡|狮城|🇸🇬|Singapore|Mala|马来|立陶宛|利亚|Bul|瑞典|荷兰|比亚|Kaz|Paki|Swi|Est|🇪🇪|\bRU\b|新加坡|\bSG|坡|狮城|🇸🇬|BTDL|Singapore|i:\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新|\bSIN|🇪🇸|i:\bES[P]?\b|i:\bDE[U]?\b|🇩🇪)' }
+  CFW_filter: &CFW_filter { filter: '(?-i)CFW \|.*'}
 
 # --- Proxy groups from groups.toml ---
 proxy-groups:
   - name: 'Proxy'
     <<: *group_common_select
-    proxies: ['US_Select', 'US_Auto', 'Auto_All', 'Media_Auto', 'Media_Select', 'Direct', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'DMCA_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'DMCA_Select', 'Block']
+    proxies: ['US_Select', 'US_Auto', 'Auto_All', 'Media_Auto', 'Media_Select', 'CFW_Auto', 'CFW_Select', 'Direct', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'DMCA_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'DMCA_Select', 'Block']
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png'
   - name: 'US_Select'
@@ -486,21 +495,24 @@ proxy-groups:
     <<: [*group_common_select, *DMCA_filter]
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate_Nation.png'
+  - name: 'CFW_Select'
+    <<: [*group_common_Select, *CFW_filter]
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png'
   - name: 'Streaming_Media'
     <<: *group_common_select
-    proxies: ['Media_Select', 'Media_Auto', 'Proxy', 'US_Auto', 'US_Select', 'JP_KR_Auto', 'JP_KR_Select', 'Auto_All', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Direct', 'Block']
+    proxies: ['Media_Select', 'Media_Auto', 'Proxy', 'US_Auto', 'US_Select', 'CFW_Auto', 'CFW_Select', 'JP_KR_Auto', 'JP_KR_Select', 'Auto_All', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
   - name: 'AI'
     <<: *group_common_select
-    proxies: ['Media_Select', 'US_Select', 'Media_Auto', 'Proxy', 'US_Auto', 'Direct', 'Auto_All', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
+    proxies: ['Media_Select', 'US_Select', 'Media_Auto', 'Proxy', 'US_Auto', 'CFW_Auto', 'CFW_Select', 'Direct', 'Auto_All', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png'
   - name: 'Microsoft'
     <<: *group_common_select
-    proxies: ['Proxy', 'US_Auto', 'Auto_All', 'US_Select', 'TW_SG_Auto', 'TW_SG_Select', 'Direct', 'Block']
+    proxies: ['Proxy', 'US_Auto', 'Auto_All', 'US_Select', 'CFW_Auto', 'CFW_Select', 'TW_SG_Auto', 'TW_SG_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png'
   - name: 'Telegram'
     <<: *group_common_select
-    proxies: ['TW_SG_Select', 'TW_SG_Auto', 'US_Auto', 'Proxy', 'US_Select', 'JP_KR_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'EU_Select', 'HK_Select', 'Block']
+    proxies: ['TW_SG_Select', 'TW_SG_Auto', 'US_Auto', 'Proxy', 'CFW_Auto', 'CFW_Select', 'US_Select', 'JP_KR_Auto', 'EU_Auto', 'HK_Auto', 'JP_KR_Select', 'EU_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
   - name: 'Social_Media'
     <<: *group_common_select
@@ -508,11 +520,11 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/NX211/homer-icons@master/png/mastodon.png'
   - name: 'IM_Service'
     <<: *group_common_select
-    proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Proxy', 'US_Auto', 'US_Select', 'TW_SG_Select', 'TW_SG_Auto', 'HK_Auto', 'HK_Select', 'Auto_All', 'EU_Auto', 'EU_Select', 'Direct', 'Block']
+    proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Proxy', 'US_Auto', 'US_Select', 'CFW_Auto', 'CFW_Select', 'TW_SG_Select', 'TW_SG_Auto', 'HK_Auto', 'HK_Select', 'Auto_All', 'EU_Auto', 'EU_Select', 'Direct', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/NX211/homer-icons@master/png/signal.png'
   - name: 'Gaming'
     <<: *group_common_select
-    proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Direct', 'US_Auto', 'US_Select', 'Proxy', 'Auto_All', 'TW_SG_Auto', 'HK_Auto', 'TW_SG_Select', 'HK_Select', 'Block']
+    proxies: ['JP_KR_Select', 'JP_KR_Auto', 'Direct', 'US_Auto', 'US_Select', 'Proxy', 'CFW_Auto', 'CFW_Select', 'Auto_All', 'TW_SG_Auto', 'HK_Auto', 'TW_SG_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png'
   - name: 'Remaining'
     <<: *group_common_select
@@ -520,7 +532,7 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Stack.png'
   - name: 'Play_Ground'
     <<: *group_common_select
-    proxies: ['Proxy', 'Direct', 'Block']
+    proxies: ['Proxy', 'CFW_Auto', 'CFW_Select', 'Direct', 'Block']
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png'
   - name: 'Work'
@@ -545,11 +557,11 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
   - name: 'Home_Block'
     <<: *group_common_select
-    proxies: ['Block', 'Direct']
+    proxies: ['Block', 'Direct', 'Proxy']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Reject.png'
   - name: 'Torrent'
     <<: *group_common_select
-    proxies: ['DMCA_Select', 'DMCA_Auto', 'Proxy', 'Direct', 'Auto_All', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
+    proxies: ['DMCA_Select', 'DMCA_Auto', 'Proxy', 'CFW_Auto', 'CFW_Select', 'Direct', 'Auto_All', 'US_Auto', 'JP_KR_Auto', 'TW_SG_Auto', 'EU_Auto', 'HK_Auto', 'US_Select', 'JP_KR_Select', 'TW_SG_Select', 'EU_Select', 'HK_Select', 'Block']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pirate_Nation.png'
   - name: 'Direct'
     <<: *group_common_select
@@ -574,6 +586,9 @@ proxy-groups:
   - name: 'Media_Auto'
     <<: [*group_common_auto, *Media_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
+  - name: 'CFW_Auto'
+    <<: [*group_common_auto, *CFW_filter]
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png'
   - name: 'EU_Auto'
     <<: [*group_common_auto, *EU_filter]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/European_Union.png'
@@ -597,6 +612,8 @@ rules:
   - RULE-SET,legacy_work_sus,Work_Sus
   - RULE-SET,legacy_work,Work
   - RULE-SET,legacy_vps_play_ground,Play_Ground
+  - RULE-SET,custom_ads,Home_Block
+  - RULE-SET,custom_block,Home_Block
 
   # Domestic direct routing
   - RULE-SET,legacy_unbreak,Direct
