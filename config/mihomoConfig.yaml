@@ -469,7 +469,6 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png'
   - name: 'US_Select'
     <<: [*group_common_select, *US_filter]
-    proxies: ['US_Auto', 'CFW_Auto']
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png'
   - name: 'JP_KR_Select'
@@ -482,7 +481,6 @@ proxy-groups:
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png'
   - name: 'Media_Select'
     <<: [*group_common_select, *Media_filter]
-    proxies: ['Media_Auto', 'CFW_Auto']
     include-all: true
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png'
   - name: 'EU_Select'
